@@ -4,6 +4,7 @@ import CtaFinal from '@/components/sections/CtaFinal'
 import SpotlightCard from '@/components/ui/SpotlightCard'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
+import ArrowRightIcon from '@/components/ui/ArrowRightIcon'
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -107,15 +108,15 @@ export default function ServicesPage() {
                 <div className="mt-16 mb-4 text-white/60">{services[0].icon}</div>
                 <h3 className="text-white mb-3">{services[0].title}</h3>
                 <p className="text-white/50 text-sm mb-6 leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{services[0].desc}</p>
-                <Link href={services[0].href} className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                <Link href={services[0].href} className="inline-flex items-center gap-2 text-sm font-semibold text-blue-300 bg-blue-400/10 hover:bg-blue-400/20 px-4 py-2 rounded-full transition-colors" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
                   En savoir plus
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4" /></svg>
+                  <ArrowRightIcon size={14} />
                 </Link>
               </div>
             </SpotlightCard>
 
             {services.slice(1, 3).map((s) => (
-              <SpotlightCard key={s.href} className="rounded-[var(--radius-lg)] bg-white p-7 flex flex-col gap-4">
+              <SpotlightCard key={s.href} className="rounded-[var(--radius-lg)] bg-white p-8 flex flex-col gap-4">
                 <div className="flex items-start justify-between">
                   <span className="italic text-ink/15" style={{ fontFamily: 'Fraunces, Georgia, serif', fontSize: '2rem', fontWeight: 300, lineHeight: 1 }}>{s.num}</span>
                   <span className="rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-xs text-blue-600" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{s.tag}</span>
@@ -123,29 +124,31 @@ export default function ServicesPage() {
                 <div className="text-navy">{s.icon}</div>
                 <h3 className="text-ink" style={{ fontSize: '1.2rem' }}>{s.title}</h3>
                 <p className="text-ink-mute text-sm leading-relaxed flex-1" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{s.desc}</p>
-                <Link href={s.href} className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mt-auto" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  En savoir plus
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4" /></svg>
-                </Link>
+                <div className="mt-auto pt-4 border-t border-[var(--line)]">
+                  <Link href={s.href} className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-full transition-colors" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                    En savoir plus
+                    <ArrowRightIcon size={14} />
+                  </Link>
+                </div>
               </SpotlightCard>
             ))}
           </div>
 
-          <SpotlightCard className="rounded-[var(--radius-lg)] bg-white p-7 flex flex-col sm:flex-row sm:items-center gap-6">
+          <SpotlightCard className="rounded-[var(--radius-lg)] bg-white p-8 flex flex-col sm:flex-row sm:items-start gap-6">
             <div className="flex-shrink-0 flex flex-col gap-2">
               <span className="italic text-ink/15" style={{ fontFamily: 'Fraunces, Georgia, serif', fontSize: '2rem', fontWeight: 300, lineHeight: 1 }}>{services[3].num}</span>
               <div className="text-navy">{services[3].icon}</div>
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-1">
-              <div className="flex-1">
-                <h3 className="text-ink mb-2" style={{ fontSize: '1.2rem' }}>{services[3].title}</h3>
-                <p className="text-ink-mute text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{services[3].desc}</p>
+            <div className="flex flex-col gap-4 flex-1">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <h3 className="text-ink" style={{ fontSize: '1.2rem' }}>{services[3].title}</h3>
+                <span className="rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-xs text-blue-600 flex-shrink-0" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{services[3].tag}</span>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <span className="rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-xs text-blue-600" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{services[3].tag}</span>
-                <Link href={services[3].href} className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+              <p className="text-ink-mute text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{services[3].desc}</p>
+              <div className="pt-4 border-t border-[var(--line)]">
+                <Link href={services[3].href} className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-full transition-colors" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
                   En savoir plus
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4" /></svg>
+                  <ArrowRightIcon size={14} />
                 </Link>
               </div>
             </div>

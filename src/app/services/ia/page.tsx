@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
+import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
 
@@ -30,28 +31,31 @@ export default function IAPage() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
           {/* Aside */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
-            <div className="rounded-[var(--radius-xl)] bg-[#1B2A4E] p-8 flex flex-col gap-8">
-              <div className="text-white/40">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M12 2a4 4 0 00-4 4v2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2h-2V6a4 4 0 00-4-4z" />
-                  <circle cx="12" cy="15" r="2" />
-                </svg>
+            <div className="relative overflow-hidden rounded-[var(--radius-xl)] bg-[#1B2A4E] p-8 flex flex-col">
+              <GridBackground variant="dark" />
+              <div className="relative z-10 flex flex-col gap-8">
+                <div className="text-white/40">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 2a4 4 0 00-4 4v2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2h-2V6a4 4 0 00-4-4z" />
+                    <circle cx="12" cy="15" r="2" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-white/40 mb-3" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>Pour qui ?</p>
+                  <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                    Entrepreneurs, PME et indépendants qui veulent intégrer l&apos;IA dans leur activité sans se perdre dans la jungle des outils disponibles.
+                  </p>
+                </div>
+                <a
+                  href={SITE_CONFIG.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center rounded-[var(--radius)] bg-blue-600 px-6 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Réserver un appel
+                </a>
               </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-white/40 mb-3" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>Pour qui ?</p>
-                <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  Entrepreneurs, PME et indépendants qui veulent intégrer l&apos;IA dans leur activité sans se perdre dans la jungle des outils disponibles.
-                </p>
-              </div>
-              <a
-                href={SITE_CONFIG.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center rounded-[var(--radius)] bg-blue-600 px-6 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-              >
-                Réserver un appel
-              </a>
             </div>
           </div>
 

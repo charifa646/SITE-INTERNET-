@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
+import GridBackground from '@/components/ui/GridBackground'
 import { StaggerReveal, StaggerItem } from '@/components/sections/StaggerReveal'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
@@ -61,8 +62,9 @@ export default function FormationsPage() {
         }
       />
 
-      <section className="bg-[#F2EFE8] py-24 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col gap-16">
+      <section className="relative bg-[#F2EFE8] py-24 px-6 overflow-hidden">
+        <GridBackground variant="light" />
+        <div className="relative z-10 max-w-5xl mx-auto flex flex-col gap-16">
           {/* Info banner */}
           <div className="flex gap-4 items-start rounded-[var(--radius-lg)] bg-blue-50 border border-blue-100 p-6 md:p-8">
             <div className="flex-shrink-0 text-blue-600 mt-0.5">

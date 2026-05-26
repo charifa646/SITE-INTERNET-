@@ -3,10 +3,12 @@
 import { motion } from 'framer-motion'
 import MagneticButton from '@/components/ui/MagneticButton'
 import AnimatedCounter from '@/components/ui/AnimatedCounter'
+import GridBackground from '@/components/ui/GridBackground'
 
 export default function HeroLamp() {
   return (
     <section className="relative min-h-[100dvh] bg-[#0A0F1E] overflow-hidden flex flex-col items-center justify-center">
+      <GridBackground variant="dark" />
 
       {/* ── Lamp assembly ── fixed at top of section */}
       <div className="absolute top-0 left-0 right-0 z-0 flex items-start justify-center" style={{ height: '340px' }}>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
+import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
 
@@ -31,36 +32,39 @@ export default function SitesPage() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
           {/* Aside */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
-            <div className="rounded-[var(--radius-xl)] bg-[#F2EFE8] border border-[var(--line)] p-8 flex flex-col gap-8">
-              <div className="text-navy">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-ink-mute mb-3" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>Pour qui ?</p>
-                <p className="text-ink-soft text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  Entrepreneurs, coachs et entreprises qui veulent un site qui reflète vraiment leur niveau d&apos;expertise — fini les templates génériques sans âme.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <a
-                  href={SITE_CONFIG.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center rounded-[var(--radius)] bg-blue-600 px-6 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-                >
-                  Réserver un appel
-                </a>
-                <Link
-                  href="/portfolio"
-                  className="block w-full text-center rounded-[var(--radius)] border border-[var(--line)] px-6 py-3.5 text-sm font-medium text-ink-soft hover:border-ink hover:text-ink transition-colors"
-                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-                >
-                  Voir des réalisations
-                </Link>
+            <div className="relative overflow-hidden rounded-[var(--radius-xl)] bg-[#F2EFE8] border border-[var(--line)] p-8 flex flex-col">
+              <GridBackground variant="light" />
+              <div className="relative z-10 flex flex-col gap-8">
+                <div className="text-navy">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M8 21h8M12 17v4" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-ink-mute mb-3" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>Pour qui ?</p>
+                  <p className="text-ink-soft text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                    Entrepreneurs, coachs et entreprises qui veulent un site qui reflète vraiment leur niveau d&apos;expertise — fini les templates génériques sans âme.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={SITE_CONFIG.calendly}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center rounded-[var(--radius)] bg-blue-600 px-6 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Réserver un appel
+                  </a>
+                  <Link
+                    href="/portfolio"
+                    className="block w-full text-center rounded-[var(--radius)] border border-[var(--line)] px-6 py-3.5 text-sm font-medium text-ink-soft hover:border-ink hover:text-ink transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Voir des réalisations
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

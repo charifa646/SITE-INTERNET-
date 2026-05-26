@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/sections/PageHero'
+import GridBackground from '@/components/ui/GridBackground'
 import { SITE_CONFIG } from '@/config/links'
 
 export const metadata: Metadata = {
@@ -117,46 +118,49 @@ export default function ContactPage() {
 
           {/* Info sidebar */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)] flex flex-col gap-6">
-            <div className="rounded-[var(--radius-xl)] bg-[#1B2A4E] p-8 md:p-10 text-white">
-              <p
-                className="italic mb-6 leading-snug"
-                style={{
-                  fontFamily: 'Fraunces, Georgia, serif',
-                  fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
-                  fontWeight: 300,
-                  color: 'rgba(255,255,255,0.8)',
-                }}
-              >
-                Chaque accompagnement commence par une conversation.
-              </p>
-
-              <div className="flex flex-col gap-4">
+            <div className="relative overflow-hidden rounded-[var(--radius-xl)] bg-[#1B2A4E] p-8 md:p-10 text-white">
+              <GridBackground variant="dark" />
+              <div className="relative z-10">
                 <p
-                  className="text-xs uppercase tracking-widest text-white/40 mb-2"
-                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  className="italic mb-6 leading-snug"
+                  style={{
+                    fontFamily: 'Fraunces, Georgia, serif',
+                    fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
+                    fontWeight: 300,
+                    color: 'rgba(255,255,255,0.8)',
+                  }}
                 >
-                  Services disponibles
+                  Chaque accompagnement commence par une conversation.
                 </p>
-                {services.map((s) => (
-                  <div key={s} className="flex items-center gap-3">
-                    <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-400" />
-                    <span
-                      className="text-sm text-white/60"
-                      style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-                    >
-                      {s}
-                    </span>
-                  </div>
-                ))}
-              </div>
 
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <p className="text-xs text-white/30" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  Basée à Ouagadougou, Burkina Faso
-                </p>
-                <p className="text-xs text-white/30 mt-1" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  Intervention en Afrique Francophone
-                </p>
+                <div className="flex flex-col gap-4">
+                  <p
+                    className="text-xs uppercase tracking-widest text-white/40 mb-2"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Services disponibles
+                  </p>
+                  {services.map((s) => (
+                    <div key={s} className="flex items-center gap-3">
+                      <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-blue-400" />
+                      <span
+                        className="text-sm text-white/60"
+                        style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                      >
+                        {s}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <p className="text-xs text-white/30" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                    Basée à Ouagadougou, Burkina Faso
+                  </p>
+                  <p className="text-xs text-white/30 mt-1" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                    Intervention en Afrique Francophone
+                  </p>
+                </div>
               </div>
             </div>
 
