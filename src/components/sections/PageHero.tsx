@@ -15,7 +15,7 @@ export default function PageHero({ eyebrow, heading, lead, cta, dark = false }: 
         dark ? 'bg-[#0A0F1E]' : 'bg-[#F8F6F1]'
       }`}
     >
-      <GridBackground variant={dark ? 'dark' : 'light'} />
+      {dark && <GridBackground variant="dark" />}
       <div className="relative z-10 max-w-5xl mx-auto">
         {eyebrow && <p className="eyebrow mb-6">{eyebrow}</p>}
         <h1

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import PageHero from '@/components/sections/PageHero'
-import GridBackground from '@/components/ui/GridBackground'
 import { SITE_CONFIG } from '@/config/links'
 
 export const metadata: Metadata = {
@@ -69,8 +68,7 @@ export default function ContactPage() {
       />
 
       <section className="relative bg-[#F8F6F1] py-24 px-6 overflow-hidden">
-        <GridBackground variant="light" />
-        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-start">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-start">
           {/* Contact methods */}
           <div className="flex flex-col gap-5">
             {contactMethods.map((m) => (

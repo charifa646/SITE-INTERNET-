@@ -146,7 +146,7 @@ export default function HeroLamp() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, type: 'spring', stiffness: 60, damping: 20 }}
         style={{ willChange: 'transform' }}
-        className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-4xl mx-auto -translate-y-10"
+        className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-4xl mx-auto -translate-y-10 pt-[calc(var(--nav-h)+1.5rem)] md:pt-0"
       >
         {/* Badge */}
         <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2.5 text-sm text-white/70">

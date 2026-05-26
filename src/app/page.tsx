@@ -125,7 +125,6 @@ export default function HomePage() {
 
       {/* 3. About Preview */}
       <section className="relative bg-[#F8F6F1] py-24 px-6 overflow-hidden">
-        <GridBackground variant="light" />
         <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-start">
           {/* Left sticky card */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
@@ -280,7 +279,7 @@ export default function HomePage() {
             {services.slice(1, 3).map((s) => (
               <SpotlightCard
                 key={s.href}
-                className="rounded-[var(--radius-lg)] bg-white p-7 flex flex-col gap-4"
+                className="rounded-[var(--radius-lg)] bg-white p-8 flex flex-col gap-4"
               >
                 <div className="flex items-start justify-between">
                   <span
@@ -298,22 +297,24 @@ export default function HomePage() {
                 <p className="text-ink-mute text-sm leading-relaxed flex-1" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
                   {s.desc}
                 </p>
-                <Link
-                  href={s.href}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mt-auto"
-                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-                >
-                  En savoir plus
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M1 7h12M8 3l4 4-4 4" />
-                  </svg>
-                </Link>
+                <div className="mt-auto pt-4 border-t border-[var(--line)]">
+                  <Link
+                    href={s.href}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    En savoir plus
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M1 7h12M8 3l4 4-4 4" />
+                    </svg>
+                  </Link>
+                </div>
               </SpotlightCard>
             ))}
           </div>
 
           {/* Service 4 full width */}
-          <SpotlightCard className="rounded-[var(--radius-lg)] bg-white p-7 flex flex-col sm:flex-row sm:items-center gap-6">
+          <SpotlightCard className="rounded-[var(--radius-lg)] bg-white p-8 flex flex-col sm:flex-row sm:items-start gap-6">
             <div className="flex-shrink-0 flex flex-col gap-2">
               <span
                 className="italic text-ink/15"
@@ -323,17 +324,17 @@ export default function HomePage() {
               </span>
               <div className="text-navy">{services[3].icon}</div>
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-1">
-              <div className="flex-1">
-                <h3 className="text-ink mb-2" style={{ fontSize: '1.2rem' }}>{services[3].title}</h3>
-                <p className="text-ink-mute text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  {services[3].desc}
-                </p>
-              </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <span className="rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-xs text-blue-600" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+            <div className="flex flex-col gap-4 flex-1">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <h3 className="text-ink" style={{ fontSize: '1.2rem' }}>{services[3].title}</h3>
+                <span className="rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-xs text-blue-600 flex-shrink-0" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
                   {services[3].tag}
                 </span>
+              </div>
+              <p className="text-ink-mute text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                {services[3].desc}
+              </p>
+              <div className="pt-4 border-t border-[var(--line)]">
                 <Link
                   href={services[3].href}
                   className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
@@ -352,7 +353,6 @@ export default function HomePage() {
 
       {/* 5. Why Section */}
       <section className="relative bg-[#F8F6F1] py-24 px-6 overflow-hidden">
-        <GridBackground variant="light" />
         <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16">
           {/* Left */}
           <div className="flex flex-col gap-6">
