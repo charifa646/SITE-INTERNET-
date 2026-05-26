@@ -10,15 +10,15 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Charifa Ouedraogo · Digital Shift — Marketing, IA & Automatisation',
   description:
-    'Automatisez votre business et modernisez votre croissance. Funnels, IA, sites performants et formations — tout pour développer votre activité en Afrique Francophone.',
+    'Automatisez votre business. Modernisez votre croissance. Consultante en funnels de vente, automatisation et intelligence artificielle.',
 }
 
 const services = [
   {
     num: '01',
     title: 'Funnels & Automatisation',
-    desc: 'Des systèmes de vente automatisés qui travaillent pour vous 24h/24.',
-    tag: 'Service phare',
+    desc: 'Création de tunnels de vente performants, systèmes de conversion et automatisations marketing pour vendre votre offre de manière plus fluide et plus efficace. Conçu pour coachs, formateurs et entrepreneurs qui veulent vendre de façon automatisée.',
+    tag: 'Pour coachs & formateurs en ligne',
     href: '/services/funnels',
     featured: true,
     icon: (
@@ -30,8 +30,8 @@ const services = [
   {
     num: '02',
     title: 'Intelligence Artificielle',
-    desc: 'Intégrez les bons outils IA pour gagner du temps et de la performance.',
-    tag: 'IA',
+    desc: 'Accompagnement à l\'intégration de l\'IA pour automatiser des tâches et améliorer votre productivité.',
+    tag: 'Entrepreneurs & entreprises',
     href: '/services/ia',
     featured: false,
     icon: (
@@ -44,8 +44,8 @@ const services = [
   {
     num: '03',
     title: 'Création de Sites Internet',
-    desc: 'Des sites premium qui convertissent et reflètent votre positionnement.',
-    tag: 'Web',
+    desc: 'Sites vitrines modernes et landing pages premium pour renforcer votre image en ligne et présenter vos services avec clarté.',
+    tag: 'Sites premium',
     href: '/services/sites',
     featured: false,
     icon: (
@@ -58,8 +58,8 @@ const services = [
   {
     num: '04',
     title: 'Formation & Consulting',
-    desc: 'Des formations en présentiel pour maîtriser le digital et l\'IA.',
-    tag: 'Formation',
+    desc: 'Accompagnement personnalisé en présentiel pour aider entrepreneurs et équipes à mieux comprendre l\'IA et la communication digitale sur les réseaux.',
+    tag: 'En présentiel',
     href: '/services/formation',
     featured: false,
     icon: (
@@ -75,22 +75,22 @@ const whyPoints = [
   {
     num: '01',
     title: 'Approche stratégique',
-    desc: 'Chaque solution est pensée en fonction de vos objectifs business précis.',
+    desc: 'Chaque projet est pensé selon votre activité, votre cible et le résultat que vous souhaitez atteindre.',
   },
   {
     num: '02',
     title: 'Solutions modernes',
-    desc: 'Des outils et méthodes à la pointe : IA, automatisation, UX premium.',
+    desc: 'J\'utilise des outils digitaux et IA actuels pour créer des systèmes plus intelligents, plus rapides et plus performants.',
   },
   {
     num: '03',
     title: 'Design premium',
-    desc: 'Une identité visuelle soignée qui inspire confiance et crédibilité.',
+    desc: 'Je conçois des interfaces modernes, épurées et professionnelles, adaptées à l\'image que vous souhaitez transmettre.',
   },
   {
     num: '04',
     title: 'Accompagnement personnalisé',
-    desc: 'Un suivi humain et adapté à votre rythme, de A à Z.',
+    desc: 'Je m\'adapte à votre niveau, à vos besoins et à votre rythme pour construire une solution vraiment utile.',
   },
 ]
 
@@ -170,13 +170,13 @@ export default function HomePage() {
               <em>automatisation</em> et de l&apos;IA.
             </h2>
             <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Basée à Ouagadougou, je travaille avec des entrepreneurs et PME en Afrique Francophone pour transformer leur présence digitale. Mon approche combine stratégie marketing, outils d&apos;automatisation et intelligence artificielle.
+              Je suis Charifa Ouedraogo, consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
             </p>
             <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              En 3 ans, j&apos;ai accompagné plus de 100 entrepreneurs dans la structuration de leur offre, la création de funnels performants et l&apos;intégration d&apos;outils IA dans leur quotidien.
+              J&apos;aide les entrepreneurs, formateurs et entreprises à vendre plus efficacement, à automatiser leurs business et à intégrer les bons outils digitaux dans leur activité.
             </p>
             <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Je crois profondément que la technologie doit servir l&apos;humain — et que chaque entrepreneur mérite des outils qui travaillent pour lui.
+              Mon travail consiste à transformer une activité dispersée en un système clair, structuré et plus rentable.
             </p>
 
             {/* Signature */}
@@ -231,10 +231,10 @@ export default function HomePage() {
             <p className="eyebrow mb-4">Services</p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
               <h2 className="text-ink">
-                Ce que je peux faire <em>pour vous</em>.
+                Des solutions digitales pensées pour faire <em>évoluer</em> votre activité.
               </h2>
               <p className="text-ink-mute max-w-sm" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                Des solutions complètes, adaptées à votre réalité et à vos objectifs de croissance.
+                Chaque service est conçu pour répondre à un besoin concret : mieux vendre, gagner du temps, professionnaliser votre image et intégrer des outils modernes.
               </p>
             </div>
           </div>
@@ -268,7 +268,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                 >
-                  Découvrir
+                  En savoir plus
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M1 7h12M8 3l4 4-4 4" />
                   </svg>
@@ -303,7 +303,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mt-auto"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                 >
-                  Découvrir
+                  En savoir plus
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M1 7h12M8 3l4 4-4 4" />
                   </svg>
@@ -339,7 +339,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                 >
-                  Découvrir
+                  En savoir plus
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M1 7h12M8 3l4 4-4 4" />
                   </svg>
@@ -361,7 +361,7 @@ export default function HomePage() {
               Une expertise orientée <em>performance</em> et innovation.
             </h2>
             <p className="text-ink-mute leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Je ne vends pas des prestations isolées — je construis des systèmes qui fonctionnent sur le long terme, avec une vision globale de votre business.
+              Mon approche ne se limite pas à créer des outils. Je vous aide à construire un système digital cohérent, efficace et adapté à vos objectifs.
             </p>
           </div>
 
@@ -392,7 +392,14 @@ export default function HomePage() {
       </section>
 
       {/* 6. CTA Final */}
-      <CtaFinal />
+      <CtaFinal
+        heading="Donnez une nouvelle <em>dimension</em> à votre activité."
+        body="Vous souhaitez automatiser votre business, améliorer votre présence digitale ou intégrer l'IA dans votre activité ? Contactez-moi pour échanger sur vos besoins."
+        primaryLabel="Réserver un appel"
+        primaryHref="/contact"
+        secondaryLabel="Voir tous les services"
+        secondaryHref="/services"
+      />
     </>
   )
 }

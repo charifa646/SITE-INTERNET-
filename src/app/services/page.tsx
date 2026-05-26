@@ -15,8 +15,8 @@ const services = [
   {
     num: '01',
     title: 'Funnels & Automatisation',
-    desc: 'Des systèmes de vente automatisés qui travaillent pour vous 24h/24. Stratégie, pages de capture, séquences email et intégrations complètes.',
-    tag: 'Service phare',
+    desc: 'Création de tunnels de vente performants, systèmes de conversion et automatisations marketing pour vendre votre offre de manière plus fluide et plus efficace. Conçu pour coachs, formateurs et entrepreneurs qui veulent vendre de façon automatisée.',
+    tag: 'Pour coachs & formateurs en ligne',
     href: '/services/funnels',
     featured: true,
     icon: (
@@ -28,8 +28,8 @@ const services = [
   {
     num: '02',
     title: 'Intelligence Artificielle',
-    desc: 'Intégrez les bons outils IA pour gagner du temps et de la performance dans votre activité.',
-    tag: 'IA',
+    desc: 'Accompagnement à l\'intégration de l\'IA pour automatiser des tâches et améliorer votre productivité.',
+    tag: 'Entrepreneurs & entreprises',
     href: '/services/ia',
     featured: false,
     icon: (
@@ -42,8 +42,8 @@ const services = [
   {
     num: '03',
     title: 'Création de Sites Internet',
-    desc: 'Des sites premium qui convertissent et reflètent votre positionnement, optimisés pour le SEO et la performance.',
-    tag: 'Web',
+    desc: 'Sites vitrines modernes et landing pages premium pour renforcer votre image en ligne et présenter vos services avec clarté.',
+    tag: 'Sites premium',
     href: '/services/sites',
     featured: false,
     icon: (
@@ -56,8 +56,8 @@ const services = [
   {
     num: '04',
     title: 'Formation & Consulting',
-    desc: 'Des formations en présentiel pour maîtriser le digital et l\'IA, en individuel ou en petit groupe.',
-    tag: 'Formation',
+    desc: 'Accompagnement personnalisé en présentiel pour aider entrepreneurs et équipes à mieux comprendre l\'IA et la communication digitale sur les réseaux.',
+    tag: 'En présentiel',
     href: '/services/formation',
     featured: false,
     icon: (
@@ -75,14 +75,14 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         heading="Des services pensés pour accompagner votre <em>croissance</em> digitale."
-        lead="Du funnel à l'IA, en passant par la création de sites et les formations — tout ce dont votre activité a besoin pour passer au niveau supérieur."
+        lead="Funnels de vente, automatisation business, intelligence artificielle, création de sites internet et accompagnement stratégique pour structurer et moderniser votre activité."
         cta={
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
             style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
           >
-            Discuter de mon projet
+            Réserver un appel
           </Link>
         }
       />
@@ -108,7 +108,7 @@ export default function ServicesPage() {
                 <h3 className="text-white mb-3">{services[0].title}</h3>
                 <p className="text-white/50 text-sm mb-6 leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{services[0].desc}</p>
                 <Link href={services[0].href} className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  Découvrir
+                  En savoir plus
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4" /></svg>
                 </Link>
               </div>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 <h3 className="text-ink" style={{ fontSize: '1.2rem' }}>{s.title}</h3>
                 <p className="text-ink-mute text-sm leading-relaxed flex-1" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{s.desc}</p>
                 <Link href={s.href} className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors mt-auto" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  Découvrir
+                  En savoir plus
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4" /></svg>
                 </Link>
               </SpotlightCard>
@@ -144,7 +144,7 @@ export default function ServicesPage() {
               <div className="flex items-center gap-3 flex-shrink-0">
                 <span className="rounded-full bg-blue-50 border border-blue-100 px-3 py-1 text-xs text-blue-600" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{services[3].tag}</span>
                 <Link href={services[3].href} className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  Découvrir
+                  En savoir plus
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 7h12M8 3l4 4-4 4" /></svg>
                 </Link>
               </div>
@@ -153,7 +153,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <CtaFinal />
+      <CtaFinal
+        eyebrow="Discutons de votre projet"
+        heading="Discutons de votre <em>projet</em>."
+        body="Chaque accompagnement commence par un échange pour comprendre vos besoins."
+        primaryLabel="Me contacter"
+        primaryHref="/contact"
+        secondaryLabel="Voir les services"
+        secondaryHref="/services"
+      />
     </>
   )
 }

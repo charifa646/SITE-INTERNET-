@@ -146,7 +146,7 @@ export default function HeroLamp() {
 
           {/* Subtitle */}
           <p className="max-w-xl text-base text-white/55 mb-10 leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-            Funnels de vente, automatisation IA, sites performants et formations adaptées &mdash; tout ce dont votre activité a besoin pour passer au niveau supérieur.
+            J&apos;accompagne entrepreneurs, formateurs et entreprises dans l&apos;automatisation et le développement de leur activité grâce aux funnels de vente, aux sites internet modernes et à l&apos;intégration de l&apos;intelligence artificielle.
           </p>
 
           {/* CTA buttons */}
@@ -163,7 +163,7 @@ export default function HeroLamp() {
               as="a"
               className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-white/15 bg-white/5 backdrop-blur-sm px-7 py-4 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
             >
-              Voir les services
+              Découvrir mes services
             </MagneticButton>
           </div>
 
@@ -196,15 +196,11 @@ export default function HeroLamp() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
               </span>
-              Automatisation active
+              Disponible &middot; Ouagadougou, BF
             </FloatingCard>
 
             <FloatingCard delay={0.6}>
-              IA intégrée &middot; Claude &middot; GPT &middot; Gemini
-            </FloatingCard>
-
-            <FloatingCard delay={1.2}>
-              +47% conversion &middot; Moyenne clients
+              Claude &middot; ChatGPT &middot; Gemini
             </FloatingCard>
           </div>
         </motion.div>

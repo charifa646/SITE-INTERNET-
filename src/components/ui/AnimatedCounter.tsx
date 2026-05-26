@@ -19,7 +19,7 @@ const AnimatedCounter = memo(function AnimatedCounter({
   const count = useMotionValue(0)
   const rounded = useTransform(count, (v) => Math.round(v))
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-60px' })
+  const isInView = useInView(ref, { once: true, margin: '0px' })
   const hasAnimated = useRef(false)
 
   useEffect(() => {

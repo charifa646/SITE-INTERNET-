@@ -20,10 +20,10 @@ type CtaFinalProps = {
 const CtaFinal = memo(function CtaFinal({
   eyebrow = 'Parlons de votre projet',
   heading = 'Donnez une nouvelle <em>dimension</em> à votre activité.',
-  body = 'Que vous ayez besoin d\'un funnel, d\'un site performant, d\'une intégration IA ou d\'une formation, je suis là pour vous accompagner.',
+  body = 'Vous souhaitez automatiser votre business, améliorer votre présence digitale ou intégrer l\'IA dans votre activité ? Contactez-moi pour échanger sur vos besoins.',
   primaryLabel = 'Réserver un appel',
   primaryHref = '/contact',
-  secondaryLabel = 'Voir les services',
+  secondaryLabel = 'Voir tous les services',
   secondaryHref = '/services',
 }: CtaFinalProps) {
   return (
