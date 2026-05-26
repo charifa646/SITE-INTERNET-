@@ -5,11 +5,13 @@ import { memo, useRef, useState, type ReactNode } from 'react'
 type SpotlightCardProps = {
   children: ReactNode
   className?: string
+  style?: React.CSSProperties
 }
 
 const SpotlightCard = memo(function SpotlightCard({
   children,
   className = '',
+  style,
 }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState({ x: 0, y: 0 })
@@ -31,6 +33,7 @@ const SpotlightCard = memo(function SpotlightCard({
       className={`relative overflow-hidden ${className}`}
       style={{
         border: '1px solid rgba(37,99,235,0.15)',
+        ...style,
       }}
     >
       {isHovered && (

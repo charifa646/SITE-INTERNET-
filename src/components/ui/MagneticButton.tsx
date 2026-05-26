@@ -6,6 +6,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 type MagneticButtonProps = {
   children: ReactNode
   className?: string
+  style?: React.CSSProperties
   onClick?: () => void
   href?: string
   as?: 'button' | 'a'
@@ -16,6 +17,7 @@ type MagneticButtonProps = {
 export default function MagneticButton({
   children,
   className = '',
+  style,
   onClick,
   href,
   as: Tag = 'button',
@@ -52,7 +54,7 @@ export default function MagneticButton({
   return (
     <MotionTag
       ref={ref as React.RefObject<HTMLButtonElement & HTMLAnchorElement>}
-      style={{ x, y, willChange: 'transform' }}
+      style={{ x, y, willChange: 'transform', ...style }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
