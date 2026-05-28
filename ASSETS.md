@@ -33,7 +33,7 @@ public/
 
 > **Note importante** : dans la section "Une approche moderne…", la citation *« Je construis mon empire à ma façon — et je m'élève. »* est **SUPPRIMÉE** (la photo `charifa-photo-accueil.png` prend toute la place de l'ancienne carte bleue).
 
-Statut : ⏳ Tous ces fichiers sont à uploader par Charifa.
+Statut : ✅ `charifa-approche.jpg`, `charifa-photo-accueil.png`, `charifa-photo-quisuje.png` présents · ⏳ `pourquoi-im.jpg`, `im-service-hero.jpg`, `background-im-formation.jpg` manquants
 
 ---
 
@@ -104,7 +104,7 @@ Statut : ✅ Tous présents
 
 | Dossier | Présents | Manquants |
 |---------|----------|-----------|
-| `public/images/` | 0 | 6 ⏳ |
+| `public/images/` | 3 | 3 ⏳ (`pourquoi-im.jpg`, `im-service-hero.jpg`, `background-im-formation.jpg`) |
 | `public/funnel-hero/` | 4 | 0 ✅ |
 | `public/portfolio/` | 7 | 0 ✅ |
 | `public/testimonials/` | 6 | 0 ✅ |
