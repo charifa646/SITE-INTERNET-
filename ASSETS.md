@@ -46,7 +46,7 @@ Statut : ⏳ Tous ces fichiers sont à uploader par Charifa.
 | `page-code-2.jpg` | `/funnel-hero/page-code-2.jpg` | **Service Funnel** — accordéon, image 3 | Interactive Accordion |
 | `page-code-3.jpg` | `/funnel-hero/page-code-3.jpg` | **Service Funnel** — accordéon, image 4 | Interactive Accordion |
 
-Statut : ✅ page-code-1/2/3.jpg présents · ⏳ capture-code.png à uploader
+Statut : ✅ Tous présents (capture-code.png + page-code-1/2/3.jpg)
 
 ---
 
@@ -105,6 +105,6 @@ Statut : ✅ Tous présents
 | Dossier | Présents | Manquants |
 |---------|----------|-----------|
 | `public/images/` | 0 | 6 ⏳ |
-| `public/funnel-hero/` | 3 | 1 ⏳ (`capture-code.png`) |
+| `public/funnel-hero/` | 4 | 0 ✅ |
 | `public/portfolio/` | 7 | 0 ✅ |
 | `public/testimonials/` | 6 | 0 ✅ |
