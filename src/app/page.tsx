@@ -4,6 +4,7 @@ import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import SpotlightCard from '@/components/ui/SpotlightCard'
 import BucketFeatures from '@/components/ui/BucketFeatures'
+import ApprochImage from '@/components/ui/ApprochImage'
 import Link from 'next/link'
 import ArrowRightIcon from '@/components/ui/ArrowRightIcon'
 
@@ -84,6 +85,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-start gap-8">
           <div className="md:w-1/4 flex-shrink-0">
             <span className="eyebrow">Approche</span>
+            <ApprochImage />
           </div>
           <div className="md:w-3/4">
             <p
