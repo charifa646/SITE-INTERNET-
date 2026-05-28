@@ -80,19 +80,20 @@ export default function HomePage() {
       <HeroLamp />
 
       {/* 2. Credibility Bar */}
-      <section className="relative bg-[#F2EFE8] border-t border-b border-[var(--line)] py-16 px-6 overflow-hidden">
+      <section className="relative bg-[#F2EFE8] border-t border-b border-[var(--line)] py-20 md:py-24 px-6 overflow-hidden">
         <GridBackground variant="light" />
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-start gap-8">
-          <div className="md:w-1/4 flex-shrink-0">
+        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,440px)_1fr] gap-10 md:gap-16 items-center">
+          {/* Left — image */}
+          <ApprochImage />
+
+          {/* Right — label + text */}
+          <div className="flex flex-col gap-5">
             <span className="eyebrow">Approche</span>
-            <ApprochImage />
-          </div>
-          <div className="md:w-3/4">
             <p
               className="text-ink leading-relaxed"
               style={{
                 fontFamily: 'Fraunces, Georgia, serif',
-                fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)',
+                fontSize: 'clamp(1.25rem, 2.4vw, 1.75rem)',
                 fontWeight: 300,
                 letterSpacing: '-0.01em',
               }}
@@ -328,7 +329,7 @@ export default function HomePage() {
 
       {/* 5. Why Section */}
       <section className="relative bg-[#F8F6F1] py-24 px-6 overflow-hidden">
-        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16">
+        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 lg:items-center">
           {/* Left */}
           <div className="flex flex-col gap-6">
             <p className="eyebrow">Pourquoi moi</p>

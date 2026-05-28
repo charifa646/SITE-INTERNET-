@@ -7,7 +7,7 @@ import GridBackground from '@/components/ui/GridBackground'
 
 export default function HeroLamp() {
   return (
-    <section className="relative min-h-[100dvh] bg-[#0A0F1E] overflow-hidden flex flex-col items-center justify-center">
+    <section className="relative min-h-[100dvh] bg-[#0A0F1E] overflow-hidden flex flex-col items-center justify-center pb-28 md:pb-40">
       <GridBackground variant="dark" />
 
       {/* ── Lamp assembly ── fixed at top of section */}

@@ -7,8 +7,10 @@ import { useIsMobile } from '@/hooks/use-mobile'
 const INITIAL_CHIPS = [
   {
     id: 1,
+    num: '01',
     title: 'Approche stratégique',
-    description: 'Pensé pour votre activité, votre cible et vos résultats.',
+    description:
+      'Chaque projet est pensé selon votre activité, votre cible et le résultat que vous souhaitez atteindre.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="3" />
@@ -18,8 +20,10 @@ const INITIAL_CHIPS = [
   },
   {
     id: 2,
+    num: '02',
     title: 'Solutions modernes',
-    description: 'Outils IA actuels pour des systèmes plus performants.',
+    description:
+      "J'utilise des outils digitaux et IA actuels pour créer des systèmes plus intelligents, plus rapides et plus performants.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -28,8 +32,10 @@ const INITIAL_CHIPS = [
   },
   {
     id: 3,
+    num: '03',
     title: 'Design premium',
-    description: 'Interfaces modernes et professionnelles à votre image.',
+    description:
+      "Je conçois des interfaces modernes, épurées et professionnelles, adaptées à l'image que vous souhaitez transmettre.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 20h9" />
@@ -39,8 +45,10 @@ const INITIAL_CHIPS = [
   },
   {
     id: 4,
+    num: '04',
     title: 'Accompagnement personnalisé',
-    description: 'Adapté à votre niveau, vos besoins et votre rythme.',
+    description:
+      "Je m'adapte à votre niveau, à vos besoins et à votre rythme pour construire une solution vraiment utile.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -65,10 +73,12 @@ const Bucket = () => {
     return () => clearInterval(interval)
   }, [])
 
+  const active = items[0]
+
   return (
-    <div className="flex flex-col gap-4 items-center justify-center h-fit relative w-full">
+    <div className="flex flex-col gap-8 items-center justify-center h-fit relative w-full">
       <div
-        className="relative isolate w-full max-w-[655px]"
+        className="relative isolate w-full max-w-[620px] mx-auto"
         style={{ aspectRatio: '655/352' }}
       >
         {/* Background SVG — bucket outline (bottom layer) */}
@@ -297,27 +307,23 @@ const Bucket = () => {
                       duration: 0.5,
                       ease: [0.455, 0.03, 0.515, 0.955],
                     }}
-                    className="border border-[#E5E0D6] bg-white z-10 rounded-full p-2 w-[240px] shadow-sm absolute pointer-events-auto flex items-center gap-2 origin-bottom"
+                    className="border border-white/50 bg-white/60 backdrop-blur-md z-10 rounded-full py-2.5 pl-2.5 pr-5 w-fit absolute pointer-events-auto flex items-center gap-3 origin-bottom"
+                    style={{
+                      boxShadow:
+                        '0 8px 24px -10px rgba(27,42,78,0.25), inset 0 1px 0 rgba(255,255,255,0.7)',
+                    }}
                   >
                     {/* Icon */}
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#1B2A4E]/8 text-[#1B2A4E]">
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#1B2A4E] text-[#60A5FA]">
                       {chip.icon}
                     </div>
-                    {/* Text */}
-                    <div className="flex flex-col gap-0.5">
-                      <span
-                        className="text-sm font-medium leading-none text-[#0F172A]"
-                        style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-                      >
-                        {chip.title}
-                      </span>
-                      <span
-                        className="text-xs text-[#64748B] line-clamp-1"
-                        style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-                      >
-                        {chip.description}
-                      </span>
-                    </div>
+                    {/* Title */}
+                    <span
+                      className="text-sm font-medium leading-none text-[#0F172A] whitespace-nowrap"
+                      style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                    >
+                      {chip.title}
+                    </span>
                   </motion.div>
                 )
               })}
@@ -338,7 +344,7 @@ const Bucket = () => {
           <g filter="url(#filter0_i_51_65)">
             <path
               d="M512.766 79.1595L147.766 79.1624C136.453 79.1625 130.796 79.1626 127.281 82.6773C123.766 86.192 123.766 91.8488 123.766 103.162V327.159C123.766 338.473 123.766 344.13 127.281 347.645C130.796 351.159 136.453 351.159 147.766 351.159H512.766C524.08 351.159 529.737 351.159 533.252 347.645C536.766 344.13 536.766 338.473 536.766 327.159V103.159C536.766 91.8457 536.766 86.1888 533.252 82.6741C529.737 79.1594 524.08 79.1594 512.766 79.1595Z"
-              fill="#F8F6F1"
+              fill="rgba(248,246,241,0.55)"
             />
           </g>
           <g clipPath="url(#center_box_clip)">
@@ -364,6 +370,39 @@ const Bucket = () => {
             />
           </g>
         </svg>
+      </div>
+
+      {/* Synced description — full COPYWRITING text of the active point */}
+      <div className="relative w-full max-w-md min-h-[120px] flex items-start justify-center text-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+            className="flex flex-col items-center gap-2"
+          >
+            <span
+              className="italic text-[#1B2A4E]/30"
+              style={{ fontFamily: 'Fraunces, Georgia, serif', fontSize: '1rem', fontWeight: 300 }}
+            >
+              {active.num}
+            </span>
+            <h4
+              className="text-[#0F172A]"
+              style={{ fontFamily: 'Satoshi, system-ui, sans-serif', fontWeight: 600, fontSize: '1.05rem', letterSpacing: 'normal', lineHeight: 1.3 }}
+            >
+              {active.title}
+            </h4>
+            <p
+              className="text-[#64748B] text-sm leading-relaxed max-w-sm"
+              style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+            >
+              {active.description}
+            </p>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   )
