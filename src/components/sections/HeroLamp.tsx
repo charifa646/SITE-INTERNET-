@@ -10,26 +10,24 @@ export default function HeroLamp() {
     <section className="relative min-h-[100dvh] bg-[#0A0F1E] overflow-hidden flex flex-col items-center justify-center">
       <GridBackground variant="dark" />
 
-      {/* ── Lamp assembly ── anchored at top, height adapts to viewport ── */}
-      <div
-        className="absolute top-0 left-0 right-0 z-0 flex items-start justify-center"
-        style={{ height: 'clamp(260px, 36vh, 340px)' }}
-      >
+      {/* ── Lamp assembly ── fixed at top of section */}
+      <div className="absolute top-0 left-0 right-0 z-0 flex items-start justify-center" style={{ height: '340px' }}>
+
         {/* Blur overlay */}
         <div
           aria-hidden="true"
           className="absolute top-0 left-0 right-0 h-48 backdrop-blur-md opacity-10"
         />
 
-        {/* Central glow blob — pushed higher so it doesn't bleed onto content */}
+        {/* Central glow blob */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
-            top: '-5rem',
+            top: '-3rem',
             left: '50%',
             transform: 'translateX(-50%)',
-            width: 'min(28rem, 80vw)',
+            width: '28rem',
             height: '9rem',
             background: 'rgba(37,99,235,0.6)',
             filter: 'blur(48px)',
@@ -38,7 +36,7 @@ export default function HeroLamp() {
           }}
         />
 
-        {/* Core bright lamp — width animates, maxWidth caps it on small screens */}
+        {/* Core bright lamp */}
         <motion.div
           aria-hidden="true"
           initial={{ width: '8rem' }}
@@ -46,10 +44,9 @@ export default function HeroLamp() {
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
-            top: '-5rem',
+            top: '-3rem',
             left: '50%',
             transform: 'translateX(-50%)',
-            maxWidth: '45vw',
             height: '9rem',
             background: 'rgba(37,99,235,0.6)',
             filter: 'blur(24px)',
@@ -59,7 +56,7 @@ export default function HeroLamp() {
           }}
         />
 
-        {/* Horizontal line — maxWidth keeps it within screen on mobile */}
+        {/* Horizontal line */}
         <motion.div
           aria-hidden="true"
           initial={{ width: '15rem' }}
@@ -70,7 +67,6 @@ export default function HeroLamp() {
             top: 0,
             left: '50%',
             transform: 'translateX(-50%)',
-            maxWidth: '90vw',
             height: '1.5px',
             background: 'rgba(37,99,235,0.7)',
             boxShadow: '0 0 20px 3px rgba(96,165,250,0.6)',
@@ -79,7 +75,7 @@ export default function HeroLamp() {
           }}
         />
 
-        {/* Left conic cone — right edge at 50%, spreads left */}
+        {/* Left conic cone — right edge at 50% (center), spreads left */}
         <motion.div
           aria-hidden="true"
           initial={{ opacity: 0.5, width: '15rem' }}
@@ -89,7 +85,6 @@ export default function HeroLamp() {
             position: 'absolute',
             top: 0,
             right: '50%',
-            maxWidth: '50vw',
             height: '340px',
             overflow: 'visible',
             backgroundImage: 'conic-gradient(from 70deg at 50% 0%, rgba(37,99,235,0.55), transparent 50%, transparent 100%)',
@@ -99,7 +94,7 @@ export default function HeroLamp() {
         >
           {/* bottom fade */}
           <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, height: '180px',
+            position: 'absolute', bottom: 0, left: 0, right: 0, height: '160px',
             background: '#0A0F1E',
             WebkitMaskImage: 'linear-gradient(to top, white, transparent)',
             maskImage: 'linear-gradient(to top, white, transparent)',
@@ -113,7 +108,7 @@ export default function HeroLamp() {
           }} />
         </motion.div>
 
-        {/* Right conic cone — left edge at 50%, spreads right */}
+        {/* Right conic cone — left edge at 50% (center), spreads right */}
         <motion.div
           aria-hidden="true"
           initial={{ opacity: 0.5, width: '15rem' }}
@@ -123,7 +118,6 @@ export default function HeroLamp() {
             position: 'absolute',
             top: 0,
             left: '50%',
-            maxWidth: '50vw',
             height: '340px',
             overflow: 'visible',
             backgroundImage: 'conic-gradient(from 290deg at 50% 0%, transparent 50%, rgba(37,99,235,0.55) 100%)',
@@ -140,27 +134,12 @@ export default function HeroLamp() {
           }} />
           {/* bottom fade */}
           <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, height: '180px',
+            position: 'absolute', bottom: 0, left: 0, right: 0, height: '160px',
             background: '#0A0F1E',
             WebkitMaskImage: 'linear-gradient(to top, white, transparent)',
             maskImage: 'linear-gradient(to top, white, transparent)',
           }} />
         </motion.div>
-
-        {/* Global bottom fade — absorbs any residual glow before the content zone */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '45%',
-            background: 'linear-gradient(to top, #0A0F1E, transparent)',
-            zIndex: 60,
-            pointerEvents: 'none',
-          }}
-        />
       </div>
 
       {/* ── Hero content — centered vertically, slight upward offset ── */}
@@ -169,7 +148,7 @@ export default function HeroLamp() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6, type: 'spring', stiffness: 60, damping: 20 }}
         style={{ willChange: 'transform' }}
-        className="relative z-20 flex flex-col items-center text-center px-6 w-full max-w-4xl mx-auto -translate-y-10 pt-[calc(var(--nav-h)+1.5rem)] md:pt-0"
+        className="relative z-20 flex flex-col items-center text-center px-6 w-full max-w-4xl mx-auto -translate-y-10 pt-[calc(var(--nav-h)+3rem)] md:pt-[calc(var(--nav-h)+2rem)]"
       >
         {/* Badge */}
         <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2.5 text-sm text-white/70">
