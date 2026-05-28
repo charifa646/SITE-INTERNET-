@@ -3,8 +3,7 @@ import HeroLamp from '@/components/sections/HeroLamp'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import SpotlightCard from '@/components/ui/SpotlightCard'
-import { StaggerReveal, StaggerItem } from '@/components/sections/StaggerReveal'
-import AnimatedCounter from '@/components/ui/AnimatedCounter'
+import BucketFeatures from '@/components/ui/BucketFeatures'
 import Link from 'next/link'
 import ArrowRightIcon from '@/components/ui/ArrowRightIcon'
 
@@ -72,28 +71,6 @@ const services = [
   },
 ]
 
-const whyPoints = [
-  {
-    num: '01',
-    title: 'Approche stratégique',
-    desc: 'Chaque projet est pensé selon votre activité, votre cible et le résultat que vous souhaitez atteindre.',
-  },
-  {
-    num: '02',
-    title: 'Solutions modernes',
-    desc: 'J\'utilise des outils digitaux et IA actuels pour créer des systèmes plus intelligents, plus rapides et plus performants.',
-  },
-  {
-    num: '03',
-    title: 'Design premium',
-    desc: 'Je conçois des interfaces modernes, épurées et professionnelles, adaptées à l\'image que vous souhaitez transmettre.',
-  },
-  {
-    num: '04',
-    title: 'Accompagnement personnalisé',
-    desc: 'Je m\'adapte à votre niveau, à vos besoins et à votre rythme pour construire une solution vraiment utile.',
-  },
-]
 
 export default function HomePage() {
   return (
@@ -361,29 +338,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Right */}
-          <StaggerReveal className="flex flex-col">
-            {whyPoints.map((p) => (
-              <StaggerItem key={p.num}>
-                <div className="flex gap-6 py-6 border-t border-[var(--line)] first:border-t-0">
-                  <span
-                    className="italic text-ink/20 flex-shrink-0 w-8"
-                    style={{ fontFamily: 'Fraunces, Georgia, serif', fontSize: '1.1rem', fontWeight: 300 }}
-                  >
-                    {p.num}
-                  </span>
-                  <div>
-                    <h4 className="text-ink mb-1" style={{ fontSize: '1rem', fontFamily: 'Satoshi, system-ui, sans-serif', fontWeight: 500, letterSpacing: 'normal', lineHeight: 1.4 }}>
-                      {p.title}
-                    </h4>
-                    <p className="text-ink-mute text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                      {p.desc}
-                    </p>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerReveal>
+          {/* Right — Bucket features */}
+          <BucketFeatures />
         </div>
       </section>
 
