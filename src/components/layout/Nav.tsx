@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import MobileMenu from '@/components/layout/MobileMenu'
 import MagneticButton from '@/components/ui/MagneticButton'
+import DockNav from '@/components/layout/DockNav'
 
 const navLinks = [
   { label: 'Accueil', href: '/' },
@@ -48,7 +49,7 @@ export default function Nav() {
           boxShadow: isDark ? 'none' : 'inset 0 1px 0 rgba(255,255,255,0.1)',
         }}
       >
-        <nav className="max-w-6xl mx-auto h-full flex items-center justify-between px-6">
+        <nav className="relative max-w-6xl mx-auto h-full flex items-center justify-between px-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group" aria-label="Charifa Ouedraogo - Accueil">
             <div
@@ -76,42 +77,10 @@ export default function Nav() {
             </div>
           </Link>
 
-          {/* Desktop nav links */}
-          <ul className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="relative px-4 py-2 text-sm font-medium rounded-[var(--radius-sm)] transition-colors"
-                    style={{
-                      color: isDark
-                        ? isActive
-                          ? 'white'
-                          : 'rgba(255,255,255,0.6)'
-                        : isActive
-                        ? 'var(--ink)'
-                        : 'var(--ink-mute)',
-                      fontFamily: 'Satoshi, system-ui, sans-serif',
-                    }}
-                  >
-                    {link.label}
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-indicator"
-                        className="absolute inset-0 rounded-[var(--radius-sm)]"
-                        style={{
-                          background: isDark ? 'rgba(255,255,255,0.08)' : 'rgba(37,99,235,0.07)',
-                        }}
-                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
+          {/* Dock centré — desktop uniquement */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
+            <DockNav isDark={isDark} />
+          </div>
 
           {/* CTA + Hamburger */}
           <div className="flex items-center gap-3">
