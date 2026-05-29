@@ -87,7 +87,7 @@ const MediaItem = ({
     <img
       src={item.url}
       alt={item.title}
-      className={`${className} object-cover cursor-pointer`}
+      className={`${className} cursor-pointer`}
       onClick={onClick}
       loading="lazy"
       decoding="async"
@@ -131,18 +131,17 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
         style={{ boxShadow: '0 40px 120px -20px rgba(10,15,30,0.4)' }}
       >
         {/* Image principale */}
-        <div className="flex-1 p-4 flex items-center justify-center">
+        <div className="flex-1 min-h-0 p-4 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedItem.id}
-              className="relative w-full max-w-3xl rounded-[var(--radius-lg)] overflow-hidden"
-              style={{ maxHeight: '70vh' }}
+              className="relative max-w-full max-h-full rounded-[var(--radius-lg)] overflow-hidden inline-flex"
               initial={{ y: 16, scale: 0.97, opacity: 0 }}
               animate={{ y: 0, scale: 1, opacity: 1, transition: { type: 'spring', stiffness: 500, damping: 30 } }}
               exit={{ y: 16, scale: 0.97, opacity: 0, transition: { duration: 0.15 } }}
               onClick={onClose}
             >
-              <MediaItem item={selectedItem} className="w-full h-full object-contain" onClick={onClose} />
+              <MediaItem item={selectedItem} className="max-w-full max-h-[78vh] w-auto h-auto object-contain" onClick={onClose} />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#0A0F1E]/70 to-transparent">
                 <h3 className="text-white font-medium" style={{ fontFamily: 'Fraunces, Georgia, serif', fontWeight: 300 }}>
                   {selectedItem.title}
@@ -195,7 +194,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 }}
                 whileHover={{ scale: 1.3, rotate: 0, y: -10, transition: { type: 'spring', stiffness: 400, damping: 25 } }}
               >
-                <MediaItem item={item} className="w-full h-full" onClick={() => setSelectedItem(item)} />
+                <MediaItem item={item} className="w-full h-full object-cover" onClick={() => setSelectedItem(item)} />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-white/20" />
               </motion.div>
             ))}
@@ -274,7 +273,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({
           />
         ) : (
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[110px] grid-flow-row-dense"
+            className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 auto-rows-[80px] md:auto-rows-[100px]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.1 }}
@@ -316,7 +315,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({
               >
                 <MediaItem
                   item={item}
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 w-full h-full object-cover"
                   onClick={() => !isDragging && setSelectedItem(item)}
                 />
                 <motion.div
