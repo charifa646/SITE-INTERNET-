@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
+import { SitesScrollHero } from '@/components/ui/container-scroll-animation'
 
 export const metadata: Metadata = {
   title: 'Création de Sites Internet',
@@ -22,11 +22,7 @@ const checklistItems = [
 export default function SitesPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Service 03"
-        heading="Création de <em>Sites Internet</em>."
-        lead="Des sites vitrines modernes et landing pages premium pour renforcer votre image en ligne et présenter vos services avec clarté."
-      />
+      <SitesScrollHero />
 
       <section className="bg-[#F8F6F1] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
