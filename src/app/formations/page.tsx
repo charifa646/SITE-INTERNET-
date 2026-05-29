@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
-import { StaggerReveal, StaggerItem } from '@/components/sections/StaggerReveal'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE_CONFIG } from '@/config/links'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Formations',
@@ -44,23 +44,80 @@ const formations = [
 export default function FormationsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Formations"
-        heading="Formations en <em>présentiel</em>."
-        lead="Des formations pratiques et accessibles, exclusivement en présentiel, pour aider entrepreneurs et entreprises à intégrer l'IA et maîtriser la communication digitale."
-        cta={
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-            style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-          >
-            Demander une session
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M1 7h12M8 3l4 4-4 4" />
-            </svg>
-          </Link>
-        }
-      />
+      {/* Split hero */}
+      <section
+        className="bg-[#F8F6F1] px-6 overflow-hidden"
+        style={{ paddingTop: 'calc(var(--nav-h) + 3rem)', paddingBottom: '3rem' }}
+      >
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* LEFT — text */}
+          <div>
+            <ScrollReveal variant="fadeLeft">
+              <div className="flex flex-col gap-6">
+                <p className="eyebrow">Formations</p>
+                <h1
+                  style={{
+                    fontFamily: 'Fraunces, Georgia, serif',
+                    fontWeight: 300,
+                    fontSize: 'clamp(2rem, 4.5vw, 3.4rem)',
+                    letterSpacing: '-0.025em',
+                    lineHeight: 1.1,
+                  }}
+                  className="text-ink"
+                >
+                  Formations en{' '}
+                  <em
+                    style={{
+                      color: 'transparent',
+                      background: 'linear-gradient(135deg, #2563EB 0%, #0D3B99 100%)',
+                      WebkitBackgroundClip: 'text',
+                      backgroundClip: 'text',
+                      fontStyle: 'italic',
+                    }}
+                  >
+                    présentiel
+                  </em>
+                  .
+                </h1>
+                <p
+                  className="text-ink-soft leading-relaxed"
+                  style={{
+                    fontFamily: 'Satoshi, system-ui, sans-serif',
+                    fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
+                    maxWidth: '48ch',
+                  }}
+                >
+                  Des formations pratiques et accessibles, exclusivement en présentiel, pour aider entrepreneurs et entreprises à intégrer l&apos;IA et maîtriser la communication digitale.
+                </p>
+                <div className="pt-2">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Demander une session
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* RIGHT — image */}
+          <div>
+            <ScrollReveal variant="fadeRight" delay={0.1}>
+              <div className="relative h-[480px] rounded-[var(--radius-xl)] overflow-hidden">
+                <Image
+                  src="/images/charifa-approche.jpg"
+                  alt="Formations en présentiel"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'top' }}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
       <section className="relative bg-[#F2EFE8] py-24 px-6 overflow-hidden">
         <GridBackground variant="light" />
@@ -86,9 +143,9 @@ export default function FormationsPage() {
           </div>
 
           {/* Formations grid */}
-          <StaggerReveal className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {formations.map((f) => (
-              <StaggerItem key={f.num}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {formations.map((f, i) => (
+              <ScrollReveal key={f.num} variant="zoomIn" delay={i * 0.1}>
                 <div className="bg-white rounded-[var(--radius-lg)] border border-[var(--line)] p-8 md:p-10 flex flex-col gap-6 h-full transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-12px_rgba(37,99,235,0.12)] hover:border-blue-100">
                   <div>
                     <p
@@ -135,9 +192,9 @@ export default function FormationsPage() {
                     {f.cta}
                   </a>
                 </div>
-              </StaggerItem>
+              </ScrollReveal>
             ))}
-          </StaggerReveal>
+          </div>
         </div>
       </section>
 

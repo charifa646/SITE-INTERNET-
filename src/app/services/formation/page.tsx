@@ -4,6 +4,7 @@ import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
+import { ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Formation & Consulting',
@@ -25,6 +26,7 @@ export default function FormationServicePage() {
         eyebrow="Service 04"
         heading="Formation & <em>Consulting</em>."
         lead="Accompagnement personnalisé en présentiel pour aider entrepreneurs et équipes à intégrer l'IA et maîtriser la communication digitale sur les réseaux."
+        bgImage="/images/im - service hero.jpg"
       />
 
       <section className="bg-[#F8F6F1] py-24 px-6">
@@ -76,9 +78,9 @@ export default function FormationServicePage() {
             </p>
 
             {/* Checklist */}
-            <ul className="flex flex-col">
+            <ScrollRevealList className="flex flex-col">
               {checklistItems.map((item) => (
-                <li key={item.title} className="flex items-start gap-4 py-5 border-t border-[var(--line)]">
+                <ScrollRevealItem key={item.title} className="flex items-start gap-4 py-5 border-t border-[var(--line)]">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mt-0.5">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-blue-600">
                       <path d="M1.5 5l2.5 2.5 4.5-4.5" />
@@ -88,9 +90,9 @@ export default function FormationServicePage() {
                     <p className="text-ink text-sm font-medium mb-1" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item.title}</p>
                     <p className="text-ink-mute text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item.desc}</p>
                   </div>
-                </li>
+                </ScrollRevealItem>
               ))}
-            </ul>
+            </ScrollRevealList>
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Link

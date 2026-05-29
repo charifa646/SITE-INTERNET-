@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE_CONFIG } from '@/config/links'
-import PageHero from '@/components/sections/PageHero'
+import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Funnels & Automatisation',
@@ -23,11 +24,92 @@ const checklistItems = [
 export default function FunnelsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Service 01"
-        heading="Funnels &amp; <em>Automatisation</em>."
-        lead="Mon expertise principale. Je construis des systèmes de vente automatisés qui convertissent, fidélisent et génèrent des revenus — sans que vous ayez à tout gérer manuellement."
-      />
+      {/* Split hero */}
+      <section
+        className="bg-[#F8F6F1] px-6 overflow-hidden"
+        style={{ paddingTop: 'calc(var(--nav-h) + 3rem)', paddingBottom: '4rem' }}
+      >
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* LEFT — image */}
+          <div className="order-2 lg:order-1">
+            <ScrollReveal variant="fadeLeft">
+              <div className="relative h-[460px] rounded-[var(--radius-xl)] overflow-hidden">
+                <Image
+                  src="/images/pourquoi-im.jpg"
+                  alt="Funnels & Automatisation"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* RIGHT — text */}
+          <div className="order-1 lg:order-2">
+            <ScrollReveal variant="fadeRight" delay={0.1}>
+              <div className="flex flex-col gap-6">
+                <span
+                  className="inline-flex self-start items-center gap-2 rounded-full border border-[var(--line)] bg-white px-4 py-1.5 text-xs font-medium text-ink-soft"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  ★ Service phare
+                </span>
+                <h1
+                  style={{
+                    fontFamily: 'Fraunces, Georgia, serif',
+                    fontWeight: 300,
+                    fontSize: 'clamp(2rem, 4.5vw, 3.4rem)',
+                    letterSpacing: '-0.025em',
+                    lineHeight: 1.1,
+                  }}
+                  className="text-ink"
+                >
+                  Funnels &amp;{' '}
+                  <em
+                    style={{
+                      color: 'transparent',
+                      background: 'linear-gradient(135deg, #2563EB 0%, #0D3B99 100%)',
+                      WebkitBackgroundClip: 'text',
+                      backgroundClip: 'text',
+                      fontStyle: 'italic',
+                    }}
+                  >
+                    Automatisation
+                  </em>
+                  .
+                </h1>
+                <p
+                  className="text-ink-soft leading-relaxed"
+                  style={{
+                    fontFamily: 'Satoshi, system-ui, sans-serif',
+                    fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
+                    maxWidth: '48ch',
+                  }}
+                >
+                  Mon expertise principale. Je construis des systèmes de vente automatisés qui convertissent, fidélisent et génèrent des revenus — sans que vous ayez à tout gérer manuellement.
+                </p>
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Réserver un appel
+                  </Link>
+                  <Link
+                    href="/portfolio"
+                    className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-[var(--line)] px-7 py-4 text-sm font-medium text-ink-soft hover:border-ink hover:text-ink transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Voir des réalisations
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-[#F8F6F1] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
@@ -62,30 +144,38 @@ export default function FunnelsPage() {
 
           {/* Main body */}
           <div className="flex flex-col gap-8">
-            <p className="eyebrow">Ce que vous obtenez</p>
-            <h2 className="text-ink">
-              Un <em>système</em> qui vend à votre place.
-            </h2>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Imaginez un système qui attire vos prospects idéaux, leur présente votre offre de façon convaincante, gère les paiements et assure le suivi — le tout automatiquement.
-            </p>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              C&apos;est exactement ce que je construis pour vous. Chaque funnel est pensé de A à Z, optimisé pour convertir et configuré pour durer.
-            </p>
+            <ScrollReveal variant="fadeUp" delay={0}>
+              <p className="eyebrow">Ce que vous obtenez</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.07}>
+              <h2 className="text-ink">
+                Un <em>système</em> qui vend à votre place.
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.12}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                Imaginez un système qui attire vos prospects idéaux, leur présente votre offre de façon convaincante, gère les paiements et assure le suivi — le tout automatiquement.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.16}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                C&apos;est exactement ce que je construis pour vous. Chaque funnel est pensé de A à Z, optimisé pour convertir et configuré pour durer.
+              </p>
+            </ScrollReveal>
 
             {/* Checklist */}
-            <ul className="flex flex-col gap-4">
+            <ScrollRevealList className="flex flex-col gap-4">
               {checklistItems.map((item) => (
-                <li key={item} className="flex items-start gap-3 py-4 border-t border-[var(--line)]">
+                <ScrollRevealItem key={item} className="flex items-start gap-3 py-4 border-t border-[var(--line)]">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mt-0.5">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-blue-600">
                       <path d="M1.5 5l2.5 2.5 4.5-4.5" />
                     </svg>
                   </div>
                   <span className="text-ink-soft text-sm" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item}</span>
-                </li>
+                </ScrollRevealItem>
               ))}
-            </ul>
+            </ScrollRevealList>
 
             <div className="pt-4">
               <Link

@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SITE_CONFIG } from '@/config/links'
 import { SitesScrollHero } from '@/components/ui/container-scroll-animation'
+import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Création de Sites Internet',
@@ -30,6 +32,16 @@ export default function SitesPage() {
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
             <div className="relative overflow-hidden rounded-[var(--radius-xl)] bg-[#F2EFE8] border border-[var(--line)] p-8 flex flex-col">
               <GridBackground variant="light" />
+              {/* Preview image */}
+              <div className="relative rounded-[var(--radius-lg)] overflow-hidden mb-6" style={{ aspectRatio: '16/9' }}>
+                <Image
+                  src="/images/capture-code.png"
+                  alt="Aperçu site"
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'top' }}
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                />
+              </div>
               <div className="relative z-10 flex flex-col gap-8">
                 <div className="text-navy">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -67,10 +79,14 @@ export default function SitesPage() {
 
           {/* Main body */}
           <div className="flex flex-col gap-8">
-            <p className="eyebrow">Ce que vous obtenez</p>
-            <h2 className="text-ink">
-              Un site qui <em>vend</em>, pas juste un site qui existe.
-            </h2>
+            <ScrollReveal variant="fadeUp" delay={0}>
+              <p className="eyebrow">Ce que vous obtenez</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.07}>
+              <h2 className="text-ink">
+                Un site qui <em>vend</em>, pas juste un site qui existe.
+              </h2>
+            </ScrollReveal>
             <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
               Votre site est votre première impression digitale. Il doit transmettre instantanément votre expertise, votre niveau et votre univers. Sans compromis sur la qualité ni sur les performances.
             </p>
@@ -79,9 +95,9 @@ export default function SitesPage() {
             </p>
 
             {/* Checklist */}
-            <ul className="flex flex-col">
+            <ScrollRevealList className="flex flex-col">
               {checklistItems.map((item) => (
-                <li key={item.title} className="flex items-start gap-4 py-5 border-t border-[var(--line)]">
+                <ScrollRevealItem key={item.title} className="flex items-start gap-4 py-5 border-t border-[var(--line)]">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mt-0.5">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-blue-600">
                       <path d="M1.5 5l2.5 2.5 4.5-4.5" />
@@ -91,9 +107,9 @@ export default function SitesPage() {
                     <p className="text-ink text-sm font-medium mb-1" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item.title}</p>
                     <p className="text-ink-mute text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item.desc}</p>
                   </div>
-                </li>
+                </ScrollRevealItem>
               ))}
-            </ul>
+            </ScrollRevealList>
 
             <div className="pt-4">
               <Link

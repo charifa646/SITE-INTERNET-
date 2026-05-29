@@ -3,6 +3,7 @@
 import { memo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import MagneticButton from '@/components/ui/MagneticButton'
 import GridBackground from '@/components/ui/GridBackground'
 import { SITE_CONFIG } from '@/config/links'
@@ -15,6 +16,7 @@ type CtaFinalProps = {
   primaryHref?: string
   secondaryLabel?: string
   secondaryHref?: string
+  bgImage?: string
 }
 
 const CtaFinal = memo(function CtaFinal({
@@ -25,6 +27,7 @@ const CtaFinal = memo(function CtaFinal({
   primaryHref = '/contact',
   secondaryLabel = 'Voir tous les services',
   secondaryHref = '/services',
+  bgImage,
 }: CtaFinalProps) {
   return (
     <section className="relative px-6 py-24">
@@ -32,12 +35,24 @@ const CtaFinal = memo(function CtaFinal({
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: false, margin: '-60px' }}
           transition={{ type: 'spring', stiffness: 70, damping: 18 }}
           style={{ willChange: 'transform' }}
           className="relative overflow-hidden rounded-[var(--radius-xl)] bg-[#0A0F1E] px-8 py-16 md:px-16 md:py-20"
         >
           <GridBackground variant="dark" />
+
+          {bgImage && (
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={bgImage}
+                alt=""
+                fill
+                aria-hidden="true"
+                style={{ objectFit: 'cover', opacity: 0.06, mixBlendMode: 'luminosity' }}
+              />
+            </div>
+          )}
 
           {/* Radial gradients */}
           <div

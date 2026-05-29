@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import MagneticButton from '@/components/ui/MagneticButton'
 import AnimatedCounter from '@/components/ui/AnimatedCounter'
 import GridBackground from '@/components/ui/GridBackground'
@@ -8,6 +9,25 @@ import GridBackground from '@/components/ui/GridBackground'
 export default function HeroLamp() {
   return (
     <section className="relative min-h-[100dvh] bg-[#0A0F1E] overflow-hidden flex flex-col items-center justify-center pb-28 md:pb-40">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/pourquoi-im.jpg"
+          alt=""
+          fill
+          aria-hidden="true"
+          priority
+          style={{ objectFit: 'cover', opacity: 0.07, mixBlendMode: 'luminosity' }}
+        />
+      </div>
+      {/* Edge fade overlay */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-[1]"
+        style={{
+          background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(10,15,30,0.95) 0%, rgba(10,15,30,0.5) 60%, rgba(10,15,30,0.1) 100%)',
+        }}
+      />
       <GridBackground variant="dark" />
 
       {/* ── Lamp assembly ── fixed at top of section */}
