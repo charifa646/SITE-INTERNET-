@@ -17,8 +17,8 @@ export function SitesScrollHero() {
 
   // Mockup : penché → plat au scroll
   const rotateX   = useTransform(scrollYProgress, [0, 0.5], [18, 0])
-  const scale     = useTransform(scrollYProgress, [0, 0.5], [0.82, 1])
-  const translateY = useTransform(scrollYProgress, [0, 0.5], [60, 0])
+  const scale     = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [0, -20])
 
   // Header : s'efface vers le haut pendant le scroll
   const headerOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0])
@@ -30,7 +30,7 @@ export function SitesScrollHero() {
 
       {/* Zone sticky — reste en vue pendant tout le scroll */}
       <div
-        className="sticky top-0 overflow-hidden flex flex-col items-center justify-start bg-[#0A0F1E]"
+        className="sticky top-0 flex flex-col items-center justify-start bg-[#0A0F1E]"
         style={{ height: '100dvh' }}
       >
         <GridBackground variant="dark" />
@@ -117,7 +117,6 @@ export function SitesScrollHero() {
           style={{
             transform: 'translateX(-50%)',
             perspective: '1200px',
-            bottom: '-4rem',
           }}
         >
           <motion.div

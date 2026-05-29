@@ -43,6 +43,7 @@ function AccordionItem({ item, isActive, onActivate }: AccordionItemProps) {
         src={item.src}
         alt={item.label}
         fill
+        priority
         className="object-cover"
         sizes="(max-width: 1024px) 0px, 380px"
       />
