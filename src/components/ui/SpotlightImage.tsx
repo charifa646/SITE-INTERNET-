@@ -9,9 +9,22 @@ type SpotlightImageProps = {
   index?: string
   aspect?: string
   priority?: boolean
-  /** Couleur du fond pour le dégradé de fondu (défaut : crème #F8F6F1) */
-  bgColor?: string
+  /** Type d'animation d'entrée : 'zoom' (Accueil), 'fade' (À propos), 'slide' (legacy) */
+  animation?: 'zoom' | 'fade' | 'slide'
 }
+
+// Variantes d'animation d'entrée (spring premium Digital Shift)
+const variants = {
+  zoom: { initial: { opacity: 0, scale: 0.92 }, animate: { opacity: 1, scale: 1 } },
+  fade: { initial: { opacity: 0 }, animate: { opacity: 1 } },
+  slide: { initial: { opacity: 0, x: -48 }, animate: { opacity: 1, x: 0 } },
+}
+
+// Masque qui fond les 4 bords de l'image dans le fond de section (~18%).
+// Le centre reste 100% net ; seuls les bords s'estompent → illusion « incrustée ».
+const edgeMask =
+  'linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%), ' +
+  'linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%)'
 
 export default function SpotlightImage({
   src,
@@ -19,22 +32,21 @@ export default function SpotlightImage({
   index,
   aspect = 'aspect-[4/5]',
   priority = false,
-  bgColor = '#F8F6F1',
+  animation = 'zoom',
 }: SpotlightImageProps) {
+  const v = variants[animation]
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: -48 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={v.initial}
+      whileInView={v.animate}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       className="relative w-full"
       style={{ willChange: 'transform, opacity' }}
     >
-      {/* Image container */}
-      <div
-        className={`relative w-full overflow-hidden rounded-[var(--radius-lg)] ${aspect}`}
-        style={{ boxShadow: '0 24px 50px -20px rgba(27,42,78,0.35)' }}
-      >
+      {/* Image container — sans cadre ni ombre, fondu sur les 4 bords */}
+      <div className={`relative w-full ${aspect}`}>
         <Image
           src={src}
           alt={alt}
@@ -42,20 +54,13 @@ export default function SpotlightImage({
           priority={priority}
           sizes="(max-width: 768px) 90vw, 40vw"
           className="object-cover"
-        />
-
-        {/* Gradient fondu vers le fond de section */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-28 pointer-events-none"
-          style={{ background: `linear-gradient(to top, ${bgColor}, transparent)` }}
-        />
-
-        {/* Inset shimmer */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 rounded-[var(--radius-lg)] pointer-events-none"
-          style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.12)' }}
+          style={{
+            // Masque (standard + WebKit) : les bords se fondent dans le fond crème
+            maskImage: edgeMask,
+            WebkitMaskImage: edgeMask,
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'source-in',
+          }}
         />
       </div>
 

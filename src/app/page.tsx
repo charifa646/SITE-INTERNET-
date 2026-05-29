@@ -55,6 +55,7 @@ export default function HomePage() {
               src="/images/charifa-photo-accueil.png"
               alt="Charifa Ouedraogo, consultante Marketing & IA"
               index="01"
+              animation="zoom"
               priority
             />
           </div>

@@ -57,6 +57,7 @@ export default function AboutPage() {
               src="/images/charifa-photo-quisuje.png"
               alt="Charifa Ouedraogo"
               index="01"
+              animation="fade"
               priority
             />
 
