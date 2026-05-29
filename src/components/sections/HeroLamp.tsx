@@ -15,6 +15,7 @@ export default function HeroLamp() {
         muted
         loop
         playsInline
+        preload="none"
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover z-0"
         style={{ opacity: 0.18, mixBlendMode: 'luminosity' }}
@@ -58,57 +59,61 @@ export default function HeroLamp() {
         {/* Core bright lamp */}
         <motion.div
           aria-hidden="true"
-          initial={{ width: '8rem' }}
-          animate={{ width: '16rem' }}
+          initial={{ scaleX: 0.5, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
             top: '-3rem',
             left: '50%',
-            transform: 'translateX(-50%)',
+            translateX: '-50%',
+            width: '16rem',
             height: '9rem',
             background: 'rgba(37,99,235,0.6)',
             filter: 'blur(24px)',
             borderRadius: '50%',
             zIndex: 30,
-            willChange: 'width',
+            willChange: 'transform, opacity',
           }}
         />
 
         {/* Horizontal line */}
         <motion.div
           aria-hidden="true"
-          initial={{ width: '15rem' }}
-          animate={{ width: '30rem' }}
+          initial={{ scaleX: 0.5, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
             top: 0,
             left: '50%',
-            transform: 'translateX(-50%)',
+            translateX: '-50%',
+            width: '30rem',
             height: '1.5px',
             background: 'rgba(37,99,235,0.7)',
             boxShadow: '0 0 20px 3px rgba(96,165,250,0.6)',
             zIndex: 50,
-            willChange: 'width',
+            willChange: 'transform, opacity',
           }}
         />
 
-        {/* Left conic cone — right edge at 50% (center), spreads left */}
+        {/* Left conic cone */}
         <motion.div
           aria-hidden="true"
-          initial={{ opacity: 0.5, width: '15rem' }}
-          animate={{ opacity: 1, width: '30rem' }}
+          initial={{ opacity: 0.5, scaleX: 0.5 }}
+          animate={{ opacity: 1, scaleX: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
             top: 0,
             right: '50%',
+            width: '30rem',
             height: '340px',
             overflow: 'visible',
             backgroundImage: 'conic-gradient(from 70deg at 50% 0%, rgba(37,99,235,0.55), transparent 50%, transparent 100%)',
             zIndex: 0,
-            willChange: 'width, opacity',
+            willChange: 'transform, opacity',
+            transformOrigin: 'right center',
           }}
         >
           {/* bottom fade */}
@@ -127,21 +132,23 @@ export default function HeroLamp() {
           }} />
         </motion.div>
 
-        {/* Right conic cone — left edge at 50% (center), spreads right */}
+        {/* Right conic cone */}
         <motion.div
           aria-hidden="true"
-          initial={{ opacity: 0.5, width: '15rem' }}
-          animate={{ opacity: 1, width: '30rem' }}
+          initial={{ opacity: 0.5, scaleX: 0.5 }}
+          animate={{ opacity: 1, scaleX: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           style={{
             position: 'absolute',
             top: 0,
             left: '50%',
+            width: '30rem',
             height: '340px',
             overflow: 'visible',
             backgroundImage: 'conic-gradient(from 290deg at 50% 0%, transparent 50%, rgba(37,99,235,0.55) 100%)',
             zIndex: 0,
-            willChange: 'width, opacity',
+            willChange: 'transform, opacity',
+            transformOrigin: 'left center',
           }}
         >
           {/* right fade */}

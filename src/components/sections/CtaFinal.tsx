@@ -1,7 +1,7 @@
 'use client'
 
-import { memo } from 'react'
-import { motion } from 'framer-motion'
+import { memo, useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import MagneticButton from '@/components/ui/MagneticButton'
@@ -29,8 +29,11 @@ const CtaFinal = memo(function CtaFinal({
   secondaryHref = '/services',
   bgImage,
 }: CtaFinalProps) {
+  const sectionRef = useRef<HTMLElement>(null)
+  const isInView = useInView(sectionRef, { once: false, margin: '-100px' })
+
   return (
-    <section className="relative px-6 py-24">
+    <section ref={sectionRef} className="relative px-6 py-24">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -64,10 +67,10 @@ const CtaFinal = memo(function CtaFinal({
             }}
           />
 
-          {/* Mesh blobs */}
+          {/* Mesh blob — animé uniquement quand la section est visible */}
           <motion.div
-            animate={{ scale: [1, 1.12, 1], opacity: [0.3, 0.45, 0.3] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            animate={isInView ? { scale: [1, 1.12, 1], opacity: [0.3, 0.45, 0.3] } : { scale: 1, opacity: 0.3 }}
+            transition={{ duration: 6, repeat: isInView ? Infinity : 0, ease: 'easeInOut' }}
             aria-hidden="true"
             style={{
               position: 'absolute',
@@ -80,7 +83,7 @@ const CtaFinal = memo(function CtaFinal({
               filter: 'blur(60px)',
               pointerEvents: 'none',
               zIndex: 0,
-              willChange: 'transform',
+              willChange: 'transform, opacity',
             }}
           />
 

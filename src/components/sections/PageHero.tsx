@@ -29,6 +29,7 @@ export default function PageHero({ eyebrow, heading, lead, cta, dark = false, bg
             muted
             loop
             playsInline
+            preload="none"
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover z-0"
             style={{

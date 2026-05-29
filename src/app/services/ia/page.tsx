@@ -34,6 +34,7 @@ export default function IAPage() {
           muted
           loop
           playsInline
+          preload="none"
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
         />
