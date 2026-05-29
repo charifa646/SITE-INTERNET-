@@ -192,9 +192,9 @@ export const StaggerTestimonials: React.FC = () => {
         // Masque dégradé : fondu sur les bords gauche et droit (fond #0A0F1E)
         style={{
           maskImage:
-            'linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%)',
+            'linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%)',
           WebkitMaskImage:
-            'linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%)',
+            'linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%)',
         }}
       >
         {list.map((testimonial, index) => {
