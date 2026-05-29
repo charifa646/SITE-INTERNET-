@@ -182,11 +182,11 @@ export default function ServicesStack() {
         </div>
       </div>
 
-      {/* Desktop / tablette : pile animée au scroll */}
-      <div className="relative z-10 hidden md:block">
-        <ContainerScroll className="h-[300vh]">
+      {/* Pile animée au scroll — active sur mobile ET desktop, tailles adaptées */}
+      <div className="relative z-10 block">
+        <ContainerScroll className="h-[280vh] sm:h-[300vh]">
           <div className="sticky top-0 flex h-svh w-full items-center justify-center px-6">
-            <CardsContainer className="mx-auto h-[460px] w-full max-w-[440px]">
+            <CardsContainer className="mx-auto h-[440px] w-full max-w-[360px] sm:h-[460px] sm:max-w-[440px]">
               {services.map((s, i) => (
                 <CardTransformed
                   key={s.href}
@@ -204,20 +204,6 @@ export default function ServicesStack() {
             </CardsContainer>
           </div>
         </ContainerScroll>
-      </div>
-
-      {/* Mobile : cartes empilées en colonne (CTA accessibles) */}
-      <div className="relative z-10 flex flex-col gap-4 px-6 pb-24 pt-12 md:hidden">
-        {services.map((s) => (
-          <div
-            key={s.href}
-            className={cardClass(s.featured, 'w-full')}
-            style={s.featured ? { background: '#0A0F1E' } : undefined}
-          >
-            {s.featured && <GridBackground variant="dark" />}
-            <CardInner s={s} />
-          </div>
-        ))}
       </div>
     </section>
   )
