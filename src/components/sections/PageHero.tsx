@@ -9,9 +9,10 @@ type PageHeroProps = {
   cta?: React.ReactNode
   dark?: boolean
   bgImage?: string
+  bgVideo?: string
 }
 
-export default function PageHero({ eyebrow, heading, lead, cta, dark = false, bgImage }: PageHeroProps) {
+export default function PageHero({ eyebrow, heading, lead, cta, dark = false, bgImage, bgVideo }: PageHeroProps) {
   return (
     <section
       className={`relative overflow-hidden pt-[calc(var(--nav-h)+4rem)] pb-20 px-6 ${
@@ -20,7 +21,34 @@ export default function PageHero({ eyebrow, heading, lead, cta, dark = false, bg
     >
       {dark && <GridBackground variant="dark" />}
 
-      {bgImage && (
+      {bgVideo && (
+        <>
+          <video
+            src={bgVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            style={{
+              opacity: dark ? 0.15 : 0.12,
+              mixBlendMode: dark ? 'luminosity' : 'multiply',
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-[1] pointer-events-none"
+            style={{
+              background: dark
+                ? 'linear-gradient(to bottom, rgba(10,15,30,0.6) 0%, transparent 40%, transparent 60%, rgba(10,15,30,0.7) 100%)'
+                : 'linear-gradient(to bottom, rgba(248,246,241,0.7) 0%, transparent 40%, transparent 60%, rgba(248,246,241,0.8) 100%)',
+            }}
+          />
+        </>
+      )}
+
+      {bgImage && !bgVideo && (
         <>
           <div className="absolute inset-0 z-0">
             <Image
@@ -35,7 +63,6 @@ export default function PageHero({ eyebrow, heading, lead, cta, dark = false, bg
               }}
             />
           </div>
-          {/* Edge fade */}
           <div
             aria-hidden="true"
             className="absolute inset-0 z-[1] pointer-events-none"

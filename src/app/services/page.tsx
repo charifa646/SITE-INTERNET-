@@ -78,7 +78,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         heading="Des services pensés pour accompagner votre <em>croissance</em> digitale."
         lead="Funnels de vente, automatisation business, intelligence artificielle, création de sites internet et accompagnement stratégique pour structurer et moderniser votre activité."
-        bgImage="/images/im - service hero.jpg"
+        bgVideo="/portfolio/hero-service-video.mp4"
         cta={
           <Link
             href="/contact"
