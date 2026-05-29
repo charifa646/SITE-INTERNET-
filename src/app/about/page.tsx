@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
 import { StaggerReveal, StaggerItem } from '@/components/sections/StaggerReveal'
+import SpotlightImage from '@/components/ui/SpotlightImage'
 
 export const metadata: Metadata = {
   title: 'À propos',
@@ -27,11 +27,36 @@ const storyParagraphs = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="À propos"
-        heading="Je suis <em>Charifa Ouedraogo</em>."
-        lead="Consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle."
-      />
+      {/* Hero — photo à gauche, titre à droite */}
+      <section className="relative overflow-hidden bg-[#F8F6F1] pt-[calc(var(--nav-h)+4rem)] pb-20 px-6">
+        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-center">
+          {/* Photo */}
+          <SpotlightImage
+            src="/images/charifa-photo-quisuje.png"
+            alt="Charifa Ouedraogo"
+            index="01"
+            priority
+          />
+
+          {/* Texte */}
+          <div className="flex flex-col">
+            <p className="eyebrow mb-6">À propos</p>
+            <h1 className="text-ink">
+              Je suis{' '}
+              <em style={{ fontStyle: 'italic', color: 'var(--blue-600)' }}>
+                Charifa Ouedraogo
+              </em>
+              .
+            </h1>
+            <p
+              className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft"
+              style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+            >
+              Consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-[#F8F6F1] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start">

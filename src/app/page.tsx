@@ -5,6 +5,7 @@ import GridBackground from '@/components/ui/GridBackground'
 import SpotlightCard from '@/components/ui/SpotlightCard'
 import PourquoiMoiTimeline from '@/components/ui/PourquoiMoiTimeline'
 import ApprochImage from '@/components/ui/ApprochImage'
+import SpotlightImage from '@/components/ui/SpotlightImage'
 import Link from 'next/link'
 import ArrowRightIcon from '@/components/ui/ArrowRightIcon'
 
@@ -107,39 +108,14 @@ export default function HomePage() {
       {/* 3. About Preview */}
       <section className="relative bg-[#F8F6F1] py-24 px-6 overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 items-start">
-          {/* Left sticky card */}
+          {/* Left — photo (Feature Spotlight) */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
-            <div
-              className="relative overflow-hidden rounded-[var(--radius-xl)] p-10 flex flex-col justify-end min-h-[380px]"
-              style={{
-                background: 'linear-gradient(135deg, #1B2A4E 0%, #1D4ED8 50%, #0D3B99 100%)',
-              }}
-            >
-              {/* Decorative quote mark */}
-              <div
-                aria-hidden="true"
-                className="absolute top-4 right-6 text-white/10 select-none pointer-events-none"
-                style={{
-                  fontFamily: 'Fraunces, Georgia, serif',
-                  fontSize: '10rem',
-                  lineHeight: 1,
-                  fontWeight: 300,
-                }}
-              >
-                &ldquo;
-              </div>
-              <blockquote
-                className="relative z-10 text-white/90 italic"
-                style={{
-                  fontFamily: 'Fraunces, Georgia, serif',
-                  fontSize: 'clamp(1.1rem, 2vw, 1.4rem)',
-                  fontWeight: 300,
-                  lineHeight: 1.4,
-                }}
-              >
-                Je construis mon empire à ma façon — et je m&apos;élève.
-              </blockquote>
-            </div>
+            <SpotlightImage
+              src="/images/charifa-photo-accueil.png"
+              alt="Charifa Ouedraogo, consultante Marketing & IA"
+              index="01"
+              priority
+            />
           </div>
 
           {/* Right content */}
