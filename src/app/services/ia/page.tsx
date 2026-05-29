@@ -117,7 +117,7 @@ export default function IAPage() {
         </div>
       </section>
 
-      <section className="bg-[#F8F6F1] py-24 px-6">
+      <section className="bg-[#0A0F1E] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
           {/* Aside */}
           <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
@@ -155,17 +155,17 @@ export default function IAPage() {
               <p className="eyebrow">Ce que vous obtenez</p>
             </ScrollReveal>
             <ScrollReveal variant="fadeUp" delay={0.07}>
-              <h2 className="text-ink">
-                L&apos;IA n&apos;est plus une option, c&apos;est un <em>levier</em>.
+              <h2 className="text-white">
+                L&apos;IA n&apos;est plus une option, c&apos;est un <em style={{ color: '#60A5FA' }}>levier</em>.
               </h2>
             </ScrollReveal>
             <ScrollReveal variant="fadeUp" delay={0.12}>
-              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+              <p className="text-white/65 leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
                 Les meilleurs entrepreneurs utilisent déjà l&apos;IA pour créer du contenu, automatiser des tâches répétitives, analyser leurs données et améliorer leur service client.
               </p>
             </ScrollReveal>
             <ScrollReveal variant="fadeUp" delay={0.16}>
-              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+              <p className="text-white/65 leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
                 Je vous aide à identifier exactement où et comment l&apos;IA peut vous faire gagner du temps — et je vous accompagne dans sa mise en place concrète.
               </p>
             </ScrollReveal>
@@ -173,26 +173,27 @@ export default function IAPage() {
             {/* Checklist */}
             <ScrollRevealList className="flex flex-col gap-4">
               {checklistItems.map((item) => (
-                <ScrollRevealItem key={item} className="flex items-start gap-3 py-4 border-t border-[var(--line)]">
-                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mt-0.5">
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-blue-600">
+                <ScrollRevealItem key={item} className="flex items-start gap-3 py-4 border-t border-white/10">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-900/30 border border-blue-500/30 flex items-center justify-center mt-0.5">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-blue-400">
                       <path d="M1.5 5l2.5 2.5 4.5-4.5" />
                     </svg>
                   </div>
-                  <span className="text-ink-soft text-sm" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item}</span>
+                  <span className="text-white/65 text-sm" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item}</span>
                 </ScrollRevealItem>
               ))}
             </ScrollRevealList>
 
             <ScrollReveal variant="fadeUp" delay={0.1}>
               <div className="pt-4">
-                <Link
+                <MagneticButton
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                  as="a"
+                  className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                 >
                   Intégrer l&apos;IA dans mon activité
-                </Link>
+                </MagneticButton>
               </div>
             </ScrollReveal>
           </div>

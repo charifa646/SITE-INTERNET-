@@ -17,7 +17,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F2EFE8] border-t border-[var(--line)]">
+    <footer className="bg-[#0A0F1E] border-t border-white/8">
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 mb-16">
@@ -29,27 +29,27 @@ export default function Footer() {
                 style={{
                   width: 38,
                   height: 38,
-                  background: 'var(--navy)',
+                  background: 'linear-gradient(135deg, #2563EB 0%, #0D3B99 100%)',
                   fontFamily: 'Fraunces, Georgia, serif',
                 }}
               >
                 CO
               </div>
-              <span className="text-sm font-medium text-ink" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                Charifa <span className="text-ink-mute">&middot;</span> Ouedraogo
+              <span className="text-sm font-medium text-white" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                Charifa <span className="text-white/35">&middot;</span> Ouedraogo
               </span>
             </div>
-            <p className="text-sm text-ink-mute leading-relaxed max-w-xs" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+            <p className="text-sm text-white/45 leading-relaxed max-w-xs" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
               Consultante marketing &amp; IA. J&apos;aide les entrepreneurs à automatiser leur business et moderniser leur croissance digitale.
             </p>
-            <p className="text-xs text-ink-mute" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+            <p className="text-xs text-white/30" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
               Ouagadougou, Burkina Faso
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-ink-mute font-medium mb-5" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+            <p className="text-xs uppercase tracking-widest text-white/30 font-medium mb-5" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
               Services
             </p>
             <ul className="flex flex-col gap-3">
@@ -57,7 +57,7 @@ export default function Footer() {
                 <li key={s.href}>
                   <Link
                     href={s.href}
-                    className="text-sm text-ink-soft hover:text-blue-600 transition-colors"
+                    className="text-sm text-white/55 hover:text-blue-400 transition-colors"
                     style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                   >
                     {s.label}
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-ink-mute font-medium mb-5" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+            <p className="text-xs uppercase tracking-widest text-white/30 font-medium mb-5" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
               Navigation
             </p>
             <ul className="flex flex-col gap-3">
@@ -77,7 +77,7 @@ export default function Footer() {
                 <li key={n.href}>
                   <Link
                     href={n.href}
-                    className="text-sm text-ink-soft hover:text-blue-600 transition-colors"
+                    className="text-sm text-white/55 hover:text-blue-400 transition-colors"
                     style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                   >
                     {n.label}
@@ -89,11 +89,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-xs uppercase tracking-widest text-ink-mute font-medium mb-5" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+            <p className="text-xs uppercase tracking-widest text-white/30 font-medium mb-5" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
               Contact
             </p>
             <ul className="flex flex-col gap-3">
-              <li className="text-sm text-ink-soft" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+              <li className="text-sm text-white/55" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
                 Ouagadougou, BF
               </li>
               <li>
@@ -101,7 +101,7 @@ export default function Footer() {
                   href={SITE_CONFIG.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-ink-soft hover:text-blue-600 transition-colors"
+                  className="text-sm text-white/55 hover:text-blue-400 transition-colors"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                 >
                   WhatsApp
@@ -112,7 +112,7 @@ export default function Footer() {
                   href={SITE_CONFIG.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-ink-soft hover:text-blue-600 transition-colors"
+                  className="text-sm text-white/55 hover:text-blue-400 transition-colors"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                 >
                   Calendly
@@ -121,7 +121,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="text-sm text-ink-soft hover:text-blue-600 transition-colors"
+                  className="text-sm text-white/55 hover:text-blue-400 transition-colors"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                 >
                   {SITE_CONFIG.email}
@@ -132,8 +132,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--line)] pt-8">
-          <p className="text-xs text-ink-mute" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/8 pt-8">
+          <p className="text-xs text-white/30" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
             &copy; 2026 Charifa Ouedraogo &middot; Digital Shift. Tous droits réservés.
           </p>
 
@@ -144,7 +144,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="text-ink-mute hover:text-blue-600 transition-colors"
+              className="text-white/35 hover:text-blue-400 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
@@ -155,7 +155,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="text-ink-mute hover:text-blue-600 transition-colors"
+              className="text-white/35 hover:text-blue-400 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
@@ -167,7 +167,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-ink-mute hover:text-blue-600 transition-colors"
+              className="text-white/35 hover:text-blue-400 transition-colors"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
