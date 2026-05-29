@@ -4,13 +4,14 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { House, Briefcase, Images, GraduationCap, User } from '@phosphor-icons/react'
+import { House, Briefcase, Images, GraduationCap, Camera, User } from '@phosphor-icons/react'
 
 const LINKS = [
   { label: 'Accueil',    href: '/',           Icon: House },
   { label: 'Services',   href: '/services',   Icon: Briefcase },
   { label: 'Portfolio',  href: '/portfolio',  Icon: Images },
   { label: 'Formations', href: '/formations', Icon: GraduationCap },
+  { label: 'Galerie',    href: '/galerie',    Icon: Camera },
   { label: 'À propos',   href: '/about',      Icon: User },
 ]
 
