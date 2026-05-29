@@ -21,19 +21,26 @@ const spans = [
 const forgeItems: MediaItemType[] = [1, 2, 3, 4, 5].map((n, i) => ({
   id: n,
   type: 'image',
-  title: 'FORGE 2026',
+  title: 'FORJE 2026',
   desc: '',
   url: `/gallerie/forge-2026/forje-2026-im${n}.jpeg`,
   span: spans[i],
 }))
 
-const sojeaItems: MediaItemType[] = [1, 2, 3, 4, 5].map((n, i) => ({
+const sojeaSpans = [
+  'md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2',
+  'md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2',
+  'md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2',
+  'md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2',
+]
+
+const sojeaItems: MediaItemType[] = [1, 2, 3, 4].map((n, i) => ({
   id: n,
   type: 'image',
   title: 'SOJEA 2026',
   desc: '',
   url: `/gallerie/sojea-2026/sojea-2026-im${n}.jpeg`,
-  span: spans[i],
+  span: sojeaSpans[i],
 }))
 
 export default function GaleriePage() {
@@ -49,7 +56,7 @@ export default function GaleriePage() {
       <section className="bg-[#F8F6F1] pt-8 pb-4 overflow-hidden">
         <InteractiveBentoGallery
           eyebrow="Événement"
-          title="FORGE 2026."
+          title="FORJE 2026."
           description="Glissez pour réorganiser · Cliquez pour agrandir"
           mediaItems={forgeItems}
         />
