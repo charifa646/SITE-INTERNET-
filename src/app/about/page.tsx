@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import CtaFinal from '@/components/sections/CtaFinal'
 import { StaggerReveal, StaggerItem } from '@/components/sections/StaggerReveal'
-import SpotlightImage from '@/components/ui/SpotlightImage'
-import GridBackground from '@/components/ui/GridBackground'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'À propos',
@@ -28,49 +28,71 @@ const storyParagraphs = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero — texte seulement */}
-      <section className="relative bg-[#0A0F1E] pt-[calc(var(--nav-h)+4rem)] pb-16 px-6 overflow-hidden">
-        <GridBackground variant="dark" />
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <p className="eyebrow mb-6">À propos</p>
-          <h1 className="text-white">
-            Je suis{' '}
-            <em style={{ fontStyle: 'italic', color: '#60A5FA' }}>
-              Charifa Ouedraogo
-            </em>
-            .
-          </h1>
-          <p
-            className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65"
-            style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-          >
-            Consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
-          </p>
+      {/* Hero split — titre + photo alignés */}
+      <section className="bg-[#F8F6F1] overflow-hidden" style={{ paddingTop: 'var(--nav-h)' }}>
+        <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-0 lg:gap-12 items-end">
+
+          {/* LEFT — eyebrow + titre + lead  (mobile : order 1) */}
+          <div className="order-1 pt-16 pb-12 lg:pb-20 flex flex-col gap-5">
+            <ScrollReveal variant="fadeDown" delay={0}>
+              <p className="eyebrow">À propos</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.08}>
+              <h1 className="text-ink">
+                Je suis{' '}
+                <em style={{ fontStyle: 'italic', color: 'var(--blue-600)' }}>
+                  Charifa Ouedraogo
+                </em>
+                .
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.15}>
+              <p
+                className="text-lg leading-relaxed text-ink-soft"
+                style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '44ch' }}
+              >
+                Consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          {/* RIGHT — photo  (mobile : order 2 = après le texte) */}
+          <ScrollReveal variant="fadeLeft" delay={0.1} className="order-2 self-end">
+            <div
+              className="relative w-full overflow-hidden"
+              style={{
+                height: 'clamp(340px, 50vw, 520px)',
+                borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0',
+              }}
+            >
+              <Image
+                src="/images/charifa-photo-quisuje.png"
+                alt="Charifa Ouedraogo"
+                fill
+                priority
+                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+            </div>
+          </ScrollReveal>
+
         </div>
       </section>
 
-      {/* Histoire — photo sticky à gauche (après le hero), paragraphes à droite */}
-      <section className="bg-[#0A0F1E] py-24 px-6">
+      {/* Histoire — carte stats sticky + paragraphes */}
+      <section className="bg-[#F8F6F1] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start">
 
-          {/* Colonne sticky : photo + stats */}
-          <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)] flex flex-col gap-8">
-            <SpotlightImage
-              src="/images/charifa-photo-quisuje.png"
-              alt="Charifa Ouedraogo"
-              index="01"
-              animation="fade"
-              priority
-            />
-
+          {/* Aside sticky — citation + stats */}
+          <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)] flex flex-col gap-6">
             <div
               className="rounded-[var(--radius-xl)] p-8 md:p-10 flex flex-col gap-8"
               style={{
-                background: 'rgba(13,27,78,0.5)',
-                border: '1px solid rgba(37,99,235,0.2)',
+                background: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)',
+                border: '1px solid #BFDBFE',
               }}
             >
-              <p className="eyebrow" style={{ color: '#60A5FA' }}>Parcours</p>
+              <p className="eyebrow" style={{ color: 'var(--blue-700)' }}>Parcours</p>
 
               <blockquote
                 className="italic leading-snug"
@@ -78,7 +100,7 @@ export default function AboutPage() {
                   fontFamily: 'Fraunces, Georgia, serif',
                   fontSize: 'clamp(1.1rem, 2vw, 1.3rem)',
                   fontWeight: 300,
-                  color: 'white',
+                  color: 'var(--navy)',
                   letterSpacing: '-0.015em',
                 }}
               >
@@ -90,7 +112,7 @@ export default function AboutPage() {
                   <div
                     key={s.label}
                     className="flex items-baseline gap-4 pb-4"
-                    style={{ borderBottom: i < stats.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}
+                    style={{ borderBottom: i < stats.length - 1 ? '1px solid rgba(13,59,153,0.12)' : 'none' }}
                   >
                     <span
                       className="flex-shrink-0"
@@ -98,7 +120,7 @@ export default function AboutPage() {
                         fontFamily: 'Fraunces, Georgia, serif',
                         fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)',
                         fontWeight: 300,
-                        color: '#60A5FA',
+                        color: 'var(--blue-900)',
                         letterSpacing: '-0.03em',
                         lineHeight: 1,
                       }}
@@ -107,7 +129,7 @@ export default function AboutPage() {
                     </span>
                     <span
                       className="text-sm"
-                      style={{ fontFamily: 'Satoshi, system-ui, sans-serif', color: 'rgba(255,255,255,0.65)' }}
+                      style={{ fontFamily: 'Satoshi, system-ui, sans-serif', color: 'var(--navy)' }}
                     >
                       {s.label}
                     </span>
@@ -122,10 +144,7 @@ export default function AboutPage() {
             {storyParagraphs.map((para, i) => (
               <StaggerItem key={i}>
                 <p
-                  className={i === 0
-                    ? 'italic text-white leading-snug'
-                    : 'text-white/65 leading-[1.8]'
-                  }
+                  className={i === 0 ? 'italic text-ink leading-snug' : 'text-ink-soft leading-[1.8]'}
                   style={{
                     fontFamily: i === 0 ? 'Fraunces, Georgia, serif' : 'Satoshi, system-ui, sans-serif',
                     fontSize: i === 0 ? 'clamp(1.2rem, 2.4vw, 1.5rem)' : 'clamp(1rem, 1.6vw, 1.05rem)',
@@ -138,6 +157,7 @@ export default function AboutPage() {
               </StaggerItem>
             ))}
           </StaggerReveal>
+
         </div>
       </section>
 
