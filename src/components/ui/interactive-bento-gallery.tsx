@@ -274,7 +274,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({
           />
         ) : (
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 auto-rows-[80px] md:auto-rows-[100px]"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[110px] grid-flow-row-dense"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.1 }}
