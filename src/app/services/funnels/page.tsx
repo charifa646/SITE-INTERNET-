@@ -24,10 +24,9 @@ export default function FunnelsPage() {
   return (
     <>
       <PageHero
-        dark
-        eyebrow="★ Service phare"
-        heading="Funnels &amp; <em>Automatisation.</em>"
-        lead="Mon expertise principale. Je construis des systèmes de vente automatisés qui transforment vos visiteurs en clients pendant que vous dormez."
+        eyebrow="Service 01"
+        heading="Funnels &amp; <em>Automatisation</em>."
+        lead="Mon expertise principale. Je construis des systèmes de vente automatisés qui convertissent, fidélisent et génèrent des revenus — sans que vous ayez à tout gérer manuellement."
       />
 
       <section className="bg-[#F8F6F1] py-24 px-6">
