@@ -27,41 +27,39 @@ const storyParagraphs = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero — photo à gauche, titre à droite */}
-      <section className="relative overflow-hidden bg-[#F8F6F1] pt-[calc(var(--nav-h)+4rem)] pb-20 px-6">
-        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-16 items-center">
-          {/* Photo */}
-          <SpotlightImage
-            src="/images/charifa-photo-quisuje.png"
-            alt="Charifa Ouedraogo"
-            index="01"
-            priority
-          />
-
-          {/* Texte */}
-          <div className="flex flex-col">
-            <p className="eyebrow mb-6">À propos</p>
-            <h1 className="text-ink">
-              Je suis{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--blue-600)' }}>
-                Charifa Ouedraogo
-              </em>
-              .
-            </h1>
-            <p
-              className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft"
-              style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-            >
-              Consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
-            </p>
-          </div>
+      {/* Hero — texte seulement */}
+      <section className="bg-[#F8F6F1] pt-[calc(var(--nav-h)+4rem)] pb-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <p className="eyebrow mb-6">À propos</p>
+          <h1 className="text-ink">
+            Je suis{' '}
+            <em style={{ fontStyle: 'italic', color: 'var(--blue-600)' }}>
+              Charifa Ouedraogo
+            </em>
+            .
+          </h1>
+          <p
+            className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft"
+            style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+          >
+            Consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
+          </p>
         </div>
       </section>
 
+      {/* Histoire — photo sticky à gauche (après le hero), paragraphes à droite */}
       <section className="bg-[#F8F6F1] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-16 items-start">
-          {/* Sticky aside */}
-          <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)]">
+
+          {/* Colonne sticky : photo + stats */}
+          <div className="lg:sticky lg:top-[calc(var(--nav-h)+2rem)] flex flex-col gap-8">
+            <SpotlightImage
+              src="/images/charifa-photo-quisuje.png"
+              alt="Charifa Ouedraogo"
+              index="01"
+              priority
+            />
+
             <div
               className="rounded-[var(--radius-xl)] p-8 md:p-10 flex flex-col gap-8"
               style={{
@@ -84,7 +82,6 @@ export default function AboutPage() {
                 &ldquo;Je construis mon empire à ma façon — et je m&apos;élève.&rdquo;
               </blockquote>
 
-              {/* Stats */}
               <div className="flex flex-col gap-4">
                 {stats.map((s, i) => (
                   <div
