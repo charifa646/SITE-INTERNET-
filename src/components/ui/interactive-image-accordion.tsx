@@ -5,22 +5,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
-type Item = {
-  id: number
-  label: string
-  src: string
-}
-
-// Labels = noms des livrables (COMPONENTS.md §5). Images = vrais funnels clients.
-const ITEMS: Item[] = [
-  { id: 1, label: 'Site vitrine',     src: '/funnel-hero/capture-code.png' },
-  { id: 2, label: 'Landing Page',     src: '/funnel-hero/page-code-1.jpg'  },
-  { id: 3, label: 'Page de Capture',  src: '/funnel-hero/page-code-2.jpg'  },
-  { id: 4, label: 'Page de Vente',    src: '/funnel-hero/page-code-3.jpg'  },
+// Images = vrais livrables clients (ASSETS.md). Labels = COPYWRITING.md §Funnels.
+const ITEMS = [
+  { id: 1, label: 'Site vitrine',    src: '/funnel-hero/capture-code.png' },
+  { id: 2, label: 'Landing Page',    src: '/funnel-hero/page-code-1.jpg'  },
+  { id: 3, label: 'Page de Capture', src: '/funnel-hero/page-code-2.jpg'  },
+  { id: 4, label: 'Page de Vente',   src: '/funnel-hero/page-code-3.jpg'  },
 ]
 
 interface AccordionItemProps {
-  item: Item
+  item: (typeof ITEMS)[0]
   isActive: boolean
   onActivate: () => void
 }
@@ -30,9 +24,10 @@ function AccordionItem({ item, isActive, onActivate }: AccordionItemProps) {
     <div
       className={cn(
         'relative rounded-[var(--radius-lg)] overflow-hidden cursor-pointer',
-        'transition-all duration-700 ease-in-out h-full',
-        isActive ? 'flex-1' : 'w-[52px] shrink-0'
+        'transition-all duration-700 ease-in-out shrink-0',
+        isActive ? 'flex-1' : 'w-[60px]'
       )}
+      style={{ height: '450px' }}
       onMouseEnter={onActivate}
       onClick={onActivate}
       role="button"
@@ -49,9 +44,9 @@ function AccordionItem({ item, isActive, onActivate }: AccordionItemProps) {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[#0A0F1E]/50 transition-opacity duration-700" />
+      <div className="absolute inset-0 bg-[#0A0F1E]/45 transition-opacity duration-700" />
 
-      {/* Inset shimmer on active */}
+      {/* Active inset border */}
       {isActive && (
         <div
           className="absolute inset-0 rounded-[var(--radius-lg)] pointer-events-none"
@@ -59,20 +54,19 @@ function AccordionItem({ item, isActive, onActivate }: AccordionItemProps) {
         />
       )}
 
-      {/* Label — horizontal on active, vertical on inactive */}
+      {/* Label — horizontal si actif, vertical si inactif */}
       <span
         className={cn(
-          'absolute text-white text-xs font-medium whitespace-nowrap transition-all duration-500',
+          'absolute text-white text-xs font-medium whitespace-nowrap transition-all duration-500 uppercase tracking-widest',
           isActive
-            ? 'bottom-5 left-5 rotate-0 opacity-100 tracking-widest uppercase'
-            : 'bottom-24 left-1/2 -translate-x-1/2 rotate-90 opacity-55 tracking-wider uppercase'
+            ? 'bottom-5 left-5 rotate-0 opacity-100'
+            : 'bottom-24 left-1/2 -translate-x-1/2 rotate-90 opacity-55'
         )}
         style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
       >
         {item.label}
       </span>
 
-      {/* Active indicator dot */}
       {isActive && (
         <div className="absolute bottom-5 right-5 w-1.5 h-1.5 rounded-full bg-blue-400" />
       )}
@@ -85,17 +79,16 @@ export function FunnelAccordionHero() {
 
   return (
     <section
-      className="relative bg-[#F8F6F1] overflow-hidden flex items-center"
+      className="relative bg-[#F8F6F1]"
       style={{
-        minHeight: '100dvh',
         paddingTop: 'calc(var(--nav-h) + 3rem)',
         paddingBottom: '4rem',
       }}
     >
-      <div className="relative z-10 max-w-5xl mx-auto w-full px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
 
-          {/* ── Left — Copy (COPYWRITING.md : PAGE SERVICE — FUNNELS) ── */}
+          {/* ── Gauche — texte (COPYWRITING.md) ── */}
           <div className="flex flex-col gap-6 lg:w-[42%] shrink-0">
 
             {/* Badge ★ Service phare */}
@@ -165,12 +158,12 @@ export function FunnelAccordionHero() {
             </div>
           </div>
 
-          {/* ── Right — Accordion ── */}
+          {/* ── Droite — accordéon ── */}
           <div className="flex-1 min-w-0">
 
-            {/* Mobile : image active pleine largeur + sélecteurs numérotés */}
+            {/* Mobile : image active + sélecteurs numérotés */}
             <div className="lg:hidden flex flex-col gap-4">
-              <div className="relative h-[280px] rounded-[var(--radius-lg)] overflow-hidden">
+              <div className="relative h-[260px] rounded-[var(--radius-lg)] overflow-hidden">
                 <Image
                   src={ITEMS[activeIndex].src}
                   alt={ITEMS[activeIndex].label}
@@ -179,7 +172,7 @@ export function FunnelAccordionHero() {
                   sizes="90vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-[#0A0F1E]/45" />
+                <div className="absolute inset-0 bg-[#0A0F1E]/40" />
                 <span
                   className="absolute bottom-4 left-4 text-white text-xs font-medium tracking-widest uppercase"
                   style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
@@ -187,8 +180,6 @@ export function FunnelAccordionHero() {
                   {ITEMS[activeIndex].label}
                 </span>
               </div>
-
-              {/* Selector tabs */}
               <div className="flex gap-2">
                 {ITEMS.map((item, i) => (
                   <button
@@ -209,8 +200,8 @@ export function FunnelAccordionHero() {
               </div>
             </div>
 
-            {/* Desktop : accordéon horizontal hover/click */}
-            <div className="hidden lg:flex flex-row items-stretch gap-3 h-[480px]">
+            {/* Desktop : accordéon horizontal hover */}
+            <div className="hidden lg:flex flex-row items-stretch gap-3">
               {ITEMS.map((item, i) => (
                 <AccordionItem
                   key={item.id}
@@ -220,6 +211,7 @@ export function FunnelAccordionHero() {
                 />
               ))}
             </div>
+
           </div>
         </div>
       </div>
