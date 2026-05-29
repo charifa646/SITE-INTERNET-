@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
+import { FunnelAccordionHero } from '@/components/ui/interactive-image-accordion'
 
 export const metadata: Metadata = {
   title: 'Funnels & Automatisation',
@@ -23,11 +23,7 @@ const checklistItems = [
 export default function FunnelsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Service 01"
-        heading="Funnels & <em>Automatisation</em>."
-        lead="Mon expertise principale. Je construis des systèmes de vente automatisés qui convertissent, fidélisent et génèrent des revenus — sans que vous ayez à tout gérer manuellement."
-      />
+      <FunnelAccordionHero />
 
       <section className="bg-[#F8F6F1] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
