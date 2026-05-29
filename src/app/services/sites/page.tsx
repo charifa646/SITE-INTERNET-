@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { SITE_CONFIG } from '@/config/links'
 import { SitesScrollHero } from '@/components/ui/container-scroll-animation'
 import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 export const metadata: Metadata = {
   title: 'Création de Sites Internet',
@@ -87,12 +88,16 @@ export default function SitesPage() {
                 Un site qui <em>vend</em>, pas juste un site qui existe.
               </h2>
             </ScrollReveal>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Votre site est votre première impression digitale. Il doit transmettre instantanément votre expertise, votre niveau et votre univers. Sans compromis sur la qualité ni sur les performances.
-            </p>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Je conçois des sites sur-mesure, jamais des templates recyclés. Chaque détail compte : la typographie, l&apos;espacement, les animations, le copywriting. Et tout est pensé mobile-first.
-            </p>
+            <ScrollReveal variant="fadeUp" delay={0.12}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
+                Votre site est votre première impression digitale. Il doit transmettre instantanément votre expertise, votre niveau et votre univers. Sans compromis sur la qualité ni sur les performances.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.16}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
+                Je conçois des sites sur-mesure, jamais des templates recyclés. Chaque détail compte : la typographie, l&apos;espacement, les animations, le copywriting. Et tout est pensé mobile-first.
+              </p>
+            </ScrollReveal>
 
             {/* Checklist */}
             <ScrollRevealList className="flex flex-col">
@@ -112,16 +117,17 @@ export default function SitesPage() {
             </ScrollRevealList>
 
             <div className="pt-4">
-              <Link
+              <MagneticButton
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                as="a"
+                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
                 style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
               >
                 Démarrer mon site
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M1 7h12M8 3l4 4-4 4" />
                 </svg>
-              </Link>
+              </MagneticButton>
             </div>
           </div>
         </div>

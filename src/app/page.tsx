@@ -22,7 +22,7 @@ export default function HomePage() {
       <HeroLamp />
 
       {/* 2. Credibility Bar */}
-      <section className="relative bg-[#F2EFE8] border-t border-b border-[var(--line)] py-20 md:py-24 px-6 overflow-hidden">
+      <section className="relative bg-[#F2EFE8] border-t border-b border-[var(--line)] py-24 px-6 overflow-hidden">
         <GridBackground variant="light" />
         <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[minmax(0,440px)_1fr] gap-10 md:gap-16 items-center">
           {/* Left — image */}

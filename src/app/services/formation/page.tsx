@@ -4,7 +4,8 @@ import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
-import { ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
+import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 export const metadata: Metadata = {
   title: 'Formation & Consulting',
@@ -66,16 +67,24 @@ export default function FormationServicePage() {
 
           {/* Main body */}
           <div className="flex flex-col gap-8">
-            <p className="eyebrow">Ce que vous apprenez</p>
-            <h2 className="text-ink">
-              Apprenez en <em>présentiel</em>, appliquez immédiatement.
-            </h2>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Mes formations sont conçues pour être directement applicables. Pas de théorie qui dort dans un classeur — vous repartez avec des outils que vous utilisez dès le lendemain dans votre activité.
-            </p>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Format en présentiel uniquement, en petit groupe ou en individuel, à Ouagadougou ou sur site dans votre entreprise.
-            </p>
+            <ScrollReveal variant="fadeUp" delay={0}>
+              <p className="eyebrow">Ce que vous apprenez</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.07}>
+              <h2 className="text-ink">
+                Apprenez en <em>présentiel</em>, appliquez immédiatement.
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.12}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
+                Mes formations sont conçues pour être directement applicables. Pas de théorie qui dort dans un classeur — vous repartez avec des outils que vous utilisez dès le lendemain dans votre activité.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.16}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
+                Format en présentiel uniquement, en petit groupe ou en individuel, à Ouagadougou ou sur site dans votre entreprise.
+              </p>
+            </ScrollReveal>
 
             {/* Checklist */}
             <ScrollRevealList className="flex flex-col">
@@ -94,25 +103,28 @@ export default function FormationServicePage() {
               ))}
             </ScrollRevealList>
 
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-              >
-                Réserver ma session
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M1 7h12M8 3l4 4-4 4" />
-                </svg>
-              </Link>
-              <Link
-                href="/formations"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-[var(--line)] px-7 py-4 text-sm font-medium text-ink-soft hover:border-ink hover:text-ink transition-colors"
-                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-              >
-                Voir les formations
-              </Link>
-            </div>
+            <ScrollReveal variant="fadeUp" delay={0.1}>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <MagneticButton
+                  href="/contact"
+                  as="a"
+                  className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Réserver ma session
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M1 7h12M8 3l4 4-4 4" />
+                  </svg>
+                </MagneticButton>
+                <Link
+                  href="/formations"
+                  className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-[var(--line)] px-7 py-4 text-sm font-medium text-ink-soft hover:border-ink hover:text-ink transition-colors"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Voir les formations
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

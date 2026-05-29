@@ -4,6 +4,7 @@ import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
 import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 export const metadata: Metadata = {
   title: 'Intelligence Artificielle',
@@ -24,7 +25,7 @@ export default function IAPage() {
       {/* Hero — vidéo en arrière-plan */}
       <section
         className="relative overflow-hidden flex items-center"
-        style={{ paddingTop: 'calc(var(--nav-h) + 4rem)', paddingBottom: '5rem', minHeight: '70vh' }}
+        style={{ paddingTop: 'calc(var(--nav-h) + 4rem)', paddingBottom: '5rem', minHeight: '75vh' }}
       >
         {/* Vidéo fond */}
         <video
@@ -95,13 +96,14 @@ export default function IAPage() {
           </ScrollReveal>
           <ScrollReveal variant="fadeUp" delay={0.22}>
             <div className="flex flex-wrap gap-3">
-              <Link
+              <MagneticButton
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                as="a"
+                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
                 style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
               >
                 Démarrer mon accompagnement
-              </Link>
+              </MagneticButton>
               <Link
                 href="/portfolio"
                 className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-white/20 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white/80 hover:bg-white/10 transition-colors"

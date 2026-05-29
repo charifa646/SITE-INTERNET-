@@ -15,7 +15,7 @@ type PageHeroProps = {
 export default function PageHero({ eyebrow, heading, lead, cta, dark = false, bgImage, bgVideo }: PageHeroProps) {
   return (
     <section
-      className={`relative overflow-hidden pt-[calc(var(--nav-h)+4rem)] pb-20 px-6 ${
+      className={`relative overflow-hidden pt-[calc(var(--nav-h)+4rem)] pb-24 px-6 ${
         dark ? 'bg-[#0A0F1E]' : 'bg-[#F8F6F1]'
       }`}
     >

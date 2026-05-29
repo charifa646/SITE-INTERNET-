@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { SITE_CONFIG } from '@/config/links'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 export const metadata: Metadata = {
   title: 'Formations',
@@ -90,13 +91,14 @@ export default function FormationsPage() {
                   Des formations pratiques et accessibles, exclusivement en présentiel, pour aider entrepreneurs et entreprises à intégrer l&apos;IA et maîtriser la communication digitale.
                 </p>
                 <div className="pt-2">
-                  <Link
+                  <MagneticButton
                     href="/contact"
-                    className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                    as="a"
+                    className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
                     style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                   >
                     Demander une session
-                  </Link>
+                  </MagneticButton>
                 </div>
               </div>
             </ScrollReveal>

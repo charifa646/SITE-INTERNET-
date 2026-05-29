@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { SITE_CONFIG } from '@/config/links'
 import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
+import MagneticButton from '@/components/ui/MagneticButton'
 
 export const metadata: Metadata = {
   title: 'Funnels & Automatisation',
@@ -90,13 +91,14 @@ export default function FunnelsPage() {
                   Mon expertise principale. Je construis des systèmes de vente automatisés qui convertissent, fidélisent et génèrent des revenus — sans que vous ayez à tout gérer manuellement.
                 </p>
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <Link
+                  <MagneticButton
                     href="/contact"
-                    className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                    as="a"
+                    className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
                     style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
                   >
                     Réserver un appel
-                  </Link>
+                  </MagneticButton>
                   <Link
                     href="/portfolio"
                     className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-[var(--line)] px-7 py-4 text-sm font-medium text-ink-soft hover:border-ink hover:text-ink transition-colors"
@@ -153,12 +155,12 @@ export default function FunnelsPage() {
               </h2>
             </ScrollReveal>
             <ScrollReveal variant="fadeUp" delay={0.12}>
-              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
                 Imaginez un système qui attire vos prospects idéaux, leur présente votre offre de façon convaincante, gère les paiements et assure le suivi — le tout automatiquement.
               </p>
             </ScrollReveal>
             <ScrollReveal variant="fadeUp" delay={0.16}>
-              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif', maxWidth: '58ch' }}>
                 C&apos;est exactement ce que je construis pour vous. Chaque funnel est pensé de A à Z, optimisé pour convertir et configuré pour durer.
               </p>
             </ScrollReveal>
@@ -178,13 +180,14 @@ export default function FunnelsPage() {
             </ScrollRevealList>
 
             <div className="pt-4">
-              <Link
+              <MagneticButton
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                as="a"
+                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
                 style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
               >
                 Démarrer mon funnel
-              </Link>
+              </MagneticButton>
             </div>
           </div>
         </div>
