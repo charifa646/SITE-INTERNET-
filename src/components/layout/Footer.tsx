@@ -175,6 +175,17 @@ export default function Footer() {
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
             </a>
+            <a
+              href={SITE_CONFIG.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="text-white/35 hover:text-blue-400 transition-colors"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16.5 3a5.5 5.5 0 005 4.5v3a8.5 8.5 0 01-5-1.6V15a6 6 0 11-6-6c.34 0 .67.03 1 .08v3.1a3 3 0 102 2.82V3h3z" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>

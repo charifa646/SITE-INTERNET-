@@ -168,7 +168,7 @@ export default function ContactPage() {
               className="text-xs text-center italic text-ink-mute"
               style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
             >
-              Liens à connecter à votre Calendly et WhatsApp
+              Réponse sous 24h · Calendly, WhatsApp ou email
             </p>
           </div>
         </div>

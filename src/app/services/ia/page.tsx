@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
-import { SITE_CONFIG } from '@/config/links'
+import { SITE_CONFIG, whatsappLink } from '@/config/links'
 import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
 import MagneticButton from '@/components/ui/MagneticButton'
 
@@ -136,15 +136,29 @@ export default function IAPage() {
                     Entrepreneurs, PME et indépendants qui veulent intégrer l&apos;IA dans leur activité sans se perdre dans la jungle des outils disponibles.
                   </p>
                 </div>
-                <a
-                  href={SITE_CONFIG.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center rounded-[var(--radius)] bg-blue-600 px-6 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-                >
-                  Réserver un appel
-                </a>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={SITE_CONFIG.calendly}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center rounded-[var(--radius)] bg-blue-600 px-6 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Réserver un appel
+                  </a>
+                  <a
+                    href={whatsappLink('Intelligence Artificielle')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0012.04 2zm5.8 14.16c-.25.69-1.43 1.32-1.97 1.4-.5.08-1.14.11-1.84-.12-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5.01-4.43-.15-.2-1.2-1.59-1.2-3.03 0-1.44.76-2.15 1.03-2.44.27-.29.58-.37.78-.37.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.59.84 2.03.91 2.18.07.15.12.32.02.52-.1.2-.15.32-.29.5-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .96.29.15.49.22.56.34.07.12.07.71-.18 1.4z" />
+                    </svg>
+                    Écrire sur WhatsApp
+                  </a>
+                </div>
               </div>
             </div>
           </div>
