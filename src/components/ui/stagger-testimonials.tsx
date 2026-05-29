@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -140,6 +140,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 export const StaggerTestimonials: React.FC = () => {
   const [cardSize, setCardSize] = useState(340)
   const [list, setList] = useState<Testimonial[]>(TESTIMONIALS)
+  const touchStartX = useRef<number | null>(null)
 
   const handleMove = (steps: number) => {
     const newList = [...list]
@@ -159,6 +160,18 @@ export const StaggerTestimonials: React.FC = () => {
     setList(newList)
   }
 
+  // Swipe tactile : seuil 50px pour éviter les faux positifs
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const delta = e.changedTouches[0].clientX - touchStartX.current
+    if (Math.abs(delta) < 50) return
+    handleMove(delta < 0 ? 1 : -1)
+    touchStartX.current = null
+  }
+
   useEffect(() => {
     const updateSize = () => {
       const { matches } = window.matchMedia('(min-width: 640px)')
@@ -170,25 +183,39 @@ export const StaggerTestimonials: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: 540 }}>
-      {list.map((testimonial, index) => {
-        const position =
-          list.length % 2
-            ? index - (list.length + 1) / 2
-            : index - list.length / 2
-        return (
-          <TestimonialCard
-            key={testimonial.tempId}
-            testimonial={testimonial}
-            handleMove={handleMove}
-            position={position}
-            cardSize={cardSize}
-          />
-        )
-      })}
+    <div className="relative w-full" style={{ height: 540 }}>
+      {/* Zone de swipe + cartes */}
+      <div
+        className="absolute inset-0 overflow-hidden"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        // Masque dégradé : fondu sur les bords gauche et droit (fond #0A0F1E)
+        style={{
+          maskImage:
+            'linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%)',
+          WebkitMaskImage:
+            'linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%)',
+        }}
+      >
+        {list.map((testimonial, index) => {
+          const position =
+            list.length % 2
+              ? index - (list.length + 1) / 2
+              : index - list.length / 2
+          return (
+            <TestimonialCard
+              key={testimonial.tempId}
+              testimonial={testimonial}
+              handleMove={handleMove}
+              position={position}
+              cardSize={cardSize}
+            />
+          )
+        })}
+      </div>
 
-      {/* Navigation */}
-      <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-3">
+      {/* Navigation — en dehors du masque pour rester pleinement visible */}
+      <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-3 z-20">
         <button
           onClick={() => handleMove(-1)}
           className={cn(
