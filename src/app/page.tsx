@@ -3,7 +3,7 @@ import HeroLamp from '@/components/sections/HeroLamp'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import SpotlightCard from '@/components/ui/SpotlightCard'
-import BucketFeatures from '@/components/ui/BucketFeatures'
+import PourquoiMoiTimeline from '@/components/ui/PourquoiMoiTimeline'
 import ApprochImage from '@/components/ui/ApprochImage'
 import Link from 'next/link'
 import ArrowRightIcon from '@/components/ui/ArrowRightIcon'
@@ -71,7 +71,6 @@ const services = [
     ),
   },
 ]
-
 
 export default function HomePage() {
   return (
@@ -341,8 +340,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Right — Bucket features */}
-          <BucketFeatures />
+          {/* Right — Radial Orbital Timeline */}
+          <PourquoiMoiTimeline />
         </div>
       </section>
 
