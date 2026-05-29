@@ -1,10 +1,16 @@
 import type { Metadata } from 'next'
-import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
 import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
+import {
+  VideoContainerScroll,
+  VideoContainerSticky,
+  VideoContainerAnimated,
+  VideoContainerInset,
+  HeroVideoPlayer,
+} from '@/components/ui/animated-video-on-scroll'
 
 export const metadata: Metadata = {
   title: 'Intelligence Artificielle',
@@ -22,12 +28,82 @@ const checklistItems = [
 export default function IAPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Service 02"
-        heading="Intelligence <em>Artificielle</em>."
-        lead="Découvrez comment l'IA peut transformer votre façon de travailler. Je sélectionne les bons outils, les intègre dans votre activité et vous forme à les utiliser efficacement."
-        bgImage="/images/im - service hero.jpg"
-      />
+      {/* Hero vidéo — Composant 7 */}
+      <VideoContainerScroll className="h-[350vh]">
+        <VideoContainerSticky
+          style={{
+            background:
+              'radial-gradient(40% 40% at 50% 20%, #0e19ae 0%, #0b1387 22.92%, #080f67 42.71%, #030526 88.54%)',
+          }}
+          className="px-6 py-10 text-white flex flex-col items-center justify-center"
+        >
+          {/* Texte — title + lead */}
+          <VideoContainerAnimated className="space-y-5 text-center max-w-2xl mx-auto">
+            <span
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs text-white/60"
+              style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+            >
+              Service 02
+            </span>
+            <h1
+              style={{
+                fontFamily: 'Fraunces, Georgia, serif',
+                fontWeight: 300,
+                fontSize: 'clamp(2.2rem, 5vw, 3.8rem)',
+                letterSpacing: '-0.025em',
+                lineHeight: 1.1,
+              }}
+            >
+              Intelligence{' '}
+              <em
+                style={{
+                  fontStyle: 'italic',
+                  color: 'transparent',
+                  background: 'linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                }}
+              >
+                Artificielle.
+              </em>
+            </h1>
+            <p
+              className="text-white/60 leading-relaxed mx-auto"
+              style={{
+                fontFamily: 'Satoshi, system-ui, sans-serif',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
+                maxWidth: '48ch',
+              }}
+            >
+              Intégrez l&apos;IA dans votre activité pour gagner du temps, réduire les tâches répétitives et améliorer votre productivité — sans complexité inutile.
+            </p>
+          </VideoContainerAnimated>
+
+          {/* Vidéo avec clip-path scroll */}
+          <VideoContainerInset className="w-full max-w-3xl mx-auto mt-8" style={{ maxHeight: '450px' }}>
+            <HeroVideoPlayer
+              src="/portfolio/hero-video-ia.mp4"
+              className="w-full rounded-[var(--radius-lg)]"
+            />
+          </VideoContainerInset>
+
+          {/* CTA */}
+          <VideoContainerAnimated
+            transition={{ delay: 0.4 }}
+            outputRange={[-80, 0]}
+            inputRange={[0, 0.7]}
+            className="mx-auto mt-6"
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-blue-500/60 bg-blue-600/10 px-6 py-2.5 text-sm font-medium text-white shadow-[0px_4px_24px_rgba(37,99,235,0.35)] hover:bg-blue-600/20 transition-colors"
+              style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+            >
+              Démarrer mon accompagnement
+            </Link>
+          </VideoContainerAnimated>
+        </VideoContainerSticky>
+      </VideoContainerScroll>
 
       <section className="bg-[#F8F6F1] py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-16 items-start">
