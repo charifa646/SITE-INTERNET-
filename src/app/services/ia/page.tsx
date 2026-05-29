@@ -4,6 +4,7 @@ import CtaFinal from '@/components/sections/CtaFinal'
 import GridBackground from '@/components/ui/GridBackground'
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/config/links'
+import { ScrollReveal, ScrollRevealList, ScrollRevealItem } from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Intelligence Artificielle',
@@ -25,6 +26,7 @@ export default function IAPage() {
         eyebrow="Service 02"
         heading="Intelligence <em>Artificielle</em>."
         lead="Découvrez comment l'IA peut transformer votre façon de travailler. Je sélectionne les bons outils, les intègre dans votre activité et vous forme à les utiliser efficacement."
+        bgImage="/images/im - service hero.jpg"
       />
 
       <section className="bg-[#F8F6F1] py-24 px-6">
@@ -61,40 +63,50 @@ export default function IAPage() {
 
           {/* Main body */}
           <div className="flex flex-col gap-8">
-            <p className="eyebrow">Ce que vous obtenez</p>
-            <h2 className="text-ink">
-              L&apos;IA n&apos;est plus une option, c&apos;est un <em>levier</em>.
-            </h2>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Les meilleurs entrepreneurs utilisent déjà l&apos;IA pour créer du contenu, automatiser des tâches répétitives, analyser leurs données et améliorer leur service client.
-            </p>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Je vous aide à identifier exactement où et comment l&apos;IA peut vous faire gagner du temps — et je vous accompagne dans sa mise en place concrète.
-            </p>
+            <ScrollReveal variant="fadeUp" delay={0}>
+              <p className="eyebrow">Ce que vous obtenez</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.07}>
+              <h2 className="text-ink">
+                L&apos;IA n&apos;est plus une option, c&apos;est un <em>levier</em>.
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.12}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                Les meilleurs entrepreneurs utilisent déjà l&apos;IA pour créer du contenu, automatiser des tâches répétitives, analyser leurs données et améliorer leur service client.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.16}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                Je vous aide à identifier exactement où et comment l&apos;IA peut vous faire gagner du temps — et je vous accompagne dans sa mise en place concrète.
+              </p>
+            </ScrollReveal>
 
             {/* Checklist */}
-            <ul className="flex flex-col gap-4">
+            <ScrollRevealList className="flex flex-col gap-4">
               {checklistItems.map((item) => (
-                <li key={item} className="flex items-start gap-3 py-4 border-t border-[var(--line)]">
+                <ScrollRevealItem key={item} className="flex items-start gap-3 py-4 border-t border-[var(--line)]">
                   <div className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center mt-0.5">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="text-blue-600">
                       <path d="M1.5 5l2.5 2.5 4.5-4.5" />
                     </svg>
                   </div>
                   <span className="text-ink-soft text-sm" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>{item}</span>
-                </li>
+                </ScrollRevealItem>
               ))}
-            </ul>
+            </ScrollRevealList>
 
-            <div className="pt-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-              >
-                Intégrer l&apos;IA dans mon activité
-              </Link>
-            </div>
+            <ScrollReveal variant="fadeUp" delay={0.1}>
+              <div className="pt-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-navy px-7 py-4 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Intégrer l&apos;IA dans mon activité
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

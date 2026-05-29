@@ -40,7 +40,7 @@ export default function SpotlightImage({
     <motion.div
       initial={v.initial}
       whileInView={v.animate}
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: false, margin: '-80px' }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       className="relative w-full"
       style={{ willChange: 'transform, opacity' }}

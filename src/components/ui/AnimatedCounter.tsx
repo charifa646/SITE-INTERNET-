@@ -19,12 +19,11 @@ const AnimatedCounter = memo(function AnimatedCounter({
   const count = useMotionValue(0)
   const rounded = useTransform(count, (v) => Math.round(v))
   const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '0px' })
-  const hasAnimated = useRef(false)
+  const isInView = useInView(ref, { once: false, margin: '0px' })
 
   useEffect(() => {
-    if (isInView && !hasAnimated.current) {
-      hasAnimated.current = true
+    if (isInView) {
+      count.set(0)
       const controls = animate(count, target, {
         duration,
         ease: [0.16, 1, 0.3, 1],

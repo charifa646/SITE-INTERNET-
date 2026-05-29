@@ -40,7 +40,7 @@ export const StaggerReveal = memo(function StaggerReveal({
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: false, margin: '-60px' }}
       className={className}
     >
       {children}

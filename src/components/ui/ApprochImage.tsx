@@ -8,7 +8,7 @@ export default function ApprochImage() {
     <motion.div
       initial={{ opacity: 0, x: -48 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: false, margin: '-80px' }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       className="relative w-full overflow-hidden rounded-[var(--radius-lg)]"
       style={{
