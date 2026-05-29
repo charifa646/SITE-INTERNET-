@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { SITE_CONFIG } from '@/config/links'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 import MagneticButton from '@/components/ui/MagneticButton'
+import InteractiveBentoGallery, { MediaItemType } from '@/components/ui/interactive-bento-gallery'
 
 export const metadata: Metadata = {
   title: 'Formations',
@@ -198,6 +199,65 @@ export default function FormationsPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── Galerie formations ── */}
+      <section className="bg-[#F8F6F1] pb-8 overflow-hidden">
+        <InteractiveBentoGallery
+          eyebrow="En images"
+          title="Nos formations en présentiel."
+          description="Glissez pour réorganiser · Cliquez pour agrandir"
+          mediaItems={[
+            {
+              id: 1,
+              type: 'image',
+              title: 'Formation en présentiel',
+              desc: '',
+              url: '/gallerie/formations/formation-presentiel-im2.png',
+              span: 'md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2',
+            },
+            {
+              id: 2,
+              type: 'image',
+              title: 'Formation en présentiel',
+              desc: '',
+              url: '/gallerie/formations/formation-presentiel-im3.png',
+              span: 'md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2',
+            },
+            {
+              id: 3,
+              type: 'image',
+              title: 'Formation en présentiel',
+              desc: '',
+              url: '/gallerie/formations/formation-presentiel-im4.png',
+              span: 'md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2',
+            },
+            {
+              id: 4,
+              type: 'image',
+              title: 'Formation en présentiel',
+              desc: '',
+              url: '/gallerie/formations/formation-presentiel-im5.png',
+              span: 'md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2',
+            },
+            {
+              id: 5,
+              type: 'image',
+              title: 'Formation en présentiel',
+              desc: '',
+              url: '/gallerie/formations/formation-presentiel-im6.png',
+              span: 'md:col-span-2 md:row-span-2 sm:col-span-2 sm:row-span-2',
+            },
+            {
+              id: 6,
+              type: 'image',
+              title: 'Formation en présentiel',
+              desc: '',
+              url: '/gallerie/formations/formation-presentiel-im7.png',
+              span: 'md:col-span-1 md:row-span-2 sm:col-span-1 sm:row-span-2',
+            },
+          ] as MediaItemType[]}
+        />
       </section>
 
       <CtaFinal
