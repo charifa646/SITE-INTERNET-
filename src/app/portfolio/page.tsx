@@ -4,6 +4,8 @@ import PageHero from '@/components/sections/PageHero'
 import CtaFinal from '@/components/sections/CtaFinal'
 import Testimonials from '@/components/sections/Testimonials'
 import { StaggerReveal, StaggerItem } from '@/components/sections/StaggerReveal'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import WistiaPlayer from '@/components/ui/WistiaPlayer'
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -138,6 +140,121 @@ export default function PortfolioPage() {
       </section>
 
       <Testimonials />
+
+      {/* ── Vidéos témoignages ── */}
+      <section className="bg-[#F8F6F1] py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+
+          {/* Header */}
+          <div className="text-center mb-14">
+            <ScrollReveal variant="fadeDown" delay={0}>
+              <p className="eyebrow mb-4">Ils m&apos;ont fait confiance</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.08}>
+              <h2 className="text-ink">
+                Leurs mots valent plus <em style={{ color: 'var(--blue-600)', fontStyle: 'italic' }}>que les miens</em>.
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          {/* Vidéo 1 — paysage (16:9) — Jean Sommer */}
+          <ScrollReveal variant="fadeUp" delay={0.1}>
+            <div className="max-w-2xl mx-auto mb-14">
+              <div
+                className="rounded-[var(--radius-xl)] overflow-hidden"
+                style={{ boxShadow: '0 24px 60px -12px rgba(37,99,235,0.14)' }}
+              >
+                <WistiaPlayer mediaId="52noyw8oi1" aspect={1.7777777777777777} />
+              </div>
+              <div className="mt-5 text-center">
+                <p
+                  className="font-medium text-ink"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Jean Sommer
+                </p>
+                <p
+                  className="text-sm text-ink-mute mt-0.5"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Coach de la voix et de la prise de parole depuis 25 ans
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Vidéos portrait (9:16) — 3 colonnes */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8">
+
+            {/* Vidéo 2 — Coach business */}
+            <ScrollReveal variant="fadeUp" delay={0.1}>
+              <div className="flex flex-col items-center">
+                <div
+                  className="w-full max-w-[280px] mx-auto rounded-[var(--radius-xl)] overflow-hidden"
+                  style={{ boxShadow: '0 16px 48px -10px rgba(15,23,42,0.12)' }}
+                >
+                  <WistiaPlayer mediaId="7htowttuil" aspect={0.575} />
+                </div>
+                <div className="mt-4 text-center">
+                  <p
+                    className="font-medium text-ink text-sm"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Coach business
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Vidéo 3 — Experte en événementielle */}
+            <ScrollReveal variant="fadeUp" delay={0.17}>
+              <div className="flex flex-col items-center">
+                <div
+                  className="w-full max-w-[280px] mx-auto rounded-[var(--radius-xl)] overflow-hidden"
+                  style={{ boxShadow: '0 16px 48px -10px rgba(15,23,42,0.12)' }}
+                >
+                  <WistiaPlayer mediaId="mz1v0wtjgg" aspect={0.575} />
+                </div>
+                <div className="mt-4 text-center">
+                  <p
+                    className="font-medium text-ink text-sm"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Experte en événementielle
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Vidéo 4 — Coach EFT Alchimique (MP4 hébergé dans le repo) */}
+            <ScrollReveal variant="fadeUp" delay={0.24}>
+              <div className="flex flex-col items-center">
+                <div
+                  className="w-full max-w-[280px] mx-auto rounded-[var(--radius-xl)] overflow-hidden bg-black"
+                  style={{ aspectRatio: '9/16', boxShadow: '0 16px 48px -10px rgba(15,23,42,0.12)' }}
+                >
+                  <video
+                    src="/portfolio/video-temoignage4.mp4"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="mt-4 text-center">
+                  <p
+                    className="font-medium text-ink text-sm"
+                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                  >
+                    Coach en EFT Alchimique
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+          </div>
+        </div>
+      </section>
 
       <CtaFinal
         heading="Et si votre projet rejoignait cette liste ?"
