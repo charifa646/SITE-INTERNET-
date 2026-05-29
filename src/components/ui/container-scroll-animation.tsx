@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import GridBackground from '@/components/ui/GridBackground'
+import MagneticButton from '@/components/ui/MagneticButton'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
-// Hero statique responsive — PAGE SERVICE CRÉATION DE SITES INTERNET (COPYWRITING.md)
+// Hero animé — PAGE SERVICE CRÉATION DE SITES INTERNET (COPYWRITING.md)
 export function SitesScrollHero() {
   return (
     <section
@@ -16,69 +18,78 @@ export function SitesScrollHero() {
 
           {/* ── Texte ── */}
           <div className="flex flex-col gap-6 lg:w-[46%] pb-12 lg:pb-16">
-            <p
-              className="text-xs uppercase tracking-[0.2em] text-white/40"
-              style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-            >
-              Service 03
-            </p>
+            <ScrollReveal variant="fadeDown" delay={0}>
+              <p
+                className="text-xs uppercase tracking-[0.2em] text-white/40"
+                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+              >
+                Service 03
+              </p>
+            </ScrollReveal>
 
-            <h1
-              className="text-white"
-              style={{
-                fontFamily: 'Fraunces, Georgia, serif',
-                fontWeight: 300,
-                fontSize: 'clamp(2.2rem, 5.5vw, 4rem)',
-                letterSpacing: '-0.025em',
-                lineHeight: 1.1,
-              }}
-            >
-              Création de{' '}
-              <em
+            <ScrollReveal variant="fadeUp" delay={0.08}>
+              <h1
+                className="text-white"
                 style={{
-                  fontStyle: 'italic',
-                  color: 'transparent',
-                  background: 'linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
+                  fontFamily: 'Fraunces, Georgia, serif',
+                  fontWeight: 300,
+                  fontSize: 'clamp(2.2rem, 5.5vw, 4rem)',
+                  letterSpacing: '-0.025em',
+                  lineHeight: 1.1,
                 }}
               >
-                Sites Internet.
-              </em>
-            </h1>
+                Création de{' '}
+                <em
+                  style={{
+                    fontStyle: 'italic',
+                    color: 'transparent',
+                    background: 'linear-gradient(135deg, #93C5FD 0%, #3B82F6 100%)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  Sites Internet.
+                </em>
+              </h1>
+            </ScrollReveal>
 
-            <p
-              className="text-white/55 leading-relaxed"
-              style={{
-                fontFamily: 'Satoshi, system-ui, sans-serif',
-                fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
-                maxWidth: '46ch',
-              }}
-            >
-              Des sites vitrines modernes et landing pages premium pour renforcer
-              votre image en ligne et présenter vos services avec clarté.
-            </p>
+            <ScrollReveal variant="fadeUp" delay={0.15}>
+              <p
+                className="text-white/55 leading-relaxed"
+                style={{
+                  fontFamily: 'Satoshi, system-ui, sans-serif',
+                  fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
+                  maxWidth: '46ch',
+                }}
+              >
+                Des sites vitrines modernes et landing pages premium pour renforcer
+                votre image en ligne et présenter vos services avec clarté.
+              </p>
+            </ScrollReveal>
 
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
-                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-              >
-                Démarrer mon projet
-              </Link>
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-white/15 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
-                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-              >
-                Voir des réalisations
-              </Link>
-            </div>
+            <ScrollReveal variant="fadeUp" delay={0.22}>
+              <div className="flex flex-wrap gap-3">
+                <MagneticButton
+                  href="/contact"
+                  as="a"
+                  className="inline-flex items-center gap-2 rounded-[var(--radius)] bg-blue-600 px-7 py-3.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors active:scale-[0.98]"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Démarrer mon projet
+                </MagneticButton>
+                <Link
+                  href="/portfolio"
+                  className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-white/15 bg-white/5 backdrop-blur-sm px-7 py-3.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  Voir des réalisations
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
 
-          {/* ── Mockup navigateur (statique) ── */}
-          <div className="lg:flex-1 self-end">
+          {/* ── Mockup navigateur ── */}
+          <ScrollReveal variant="fadeUp" delay={0.18} className="lg:flex-1 self-end">
             <div
               className="w-full overflow-hidden"
               style={{
@@ -118,7 +129,7 @@ export function SitesScrollHero() {
                 />
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>
