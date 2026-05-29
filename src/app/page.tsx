@@ -7,6 +7,7 @@ import ApprochImage from '@/components/ui/ApprochImage'
 import SpotlightImage from '@/components/ui/SpotlightImage'
 import ServicesStack from '@/components/sections/ServicesStack'
 import Link from 'next/link'
+import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Charifa Ouedraogo · Digital Shift — Marketing, IA & Automatisation',
@@ -29,19 +30,23 @@ export default function HomePage() {
 
           {/* Right — label + text */}
           <div className="flex flex-col gap-5">
-            <span className="eyebrow">Approche</span>
-            <p
-              className="text-ink leading-relaxed"
-              style={{
-                fontFamily: 'Fraunces, Georgia, serif',
-                fontSize: 'clamp(1.25rem, 2.4vw, 1.75rem)',
-                fontWeight: 300,
-                letterSpacing: '-0.01em',
-              }}
-            >
-              Des solutions digitales conçues pour vous aider à{' '}
-              <em style={{ fontStyle: 'italic', color: 'var(--blue-600)' }}>gagner du temps</em>, structurer votre activité et développer une présence en ligne plus performante.
-            </p>
+            <ScrollReveal variant="fadeDown" delay={0}>
+              <span className="eyebrow">Approche</span>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeRight" delay={0.1}>
+              <p
+                className="text-ink leading-relaxed"
+                style={{
+                  fontFamily: 'Fraunces, Georgia, serif',
+                  fontSize: 'clamp(1.25rem, 2.4vw, 1.75rem)',
+                  fontWeight: 300,
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                Des solutions digitales conçues pour vous aider à{' '}
+                <em style={{ fontStyle: 'italic', color: 'var(--blue-600)' }}>gagner du temps</em>, structurer votre activité et développer une présence en ligne plus performante.
+              </p>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -62,60 +67,74 @@ export default function HomePage() {
 
           {/* Right content */}
           <div className="flex flex-col gap-6">
-            <p className="eyebrow">À propos</p>
-            <h2 className="text-ink">
-              Une approche moderne du marketing, de l&apos;
-              <em>automatisation</em> et de l&apos;IA.
-            </h2>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Je suis Charifa Ouedraogo, consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
-            </p>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              J&apos;aide les entrepreneurs, formateurs et entreprises à vendre plus efficacement, à automatiser leurs business et à intégrer les bons outils digitaux dans leur activité.
-            </p>
-            <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Mon travail consiste à transformer une activité dispersée en un système clair, structuré et plus rentable.
-            </p>
+            <ScrollReveal variant="fadeDown" delay={0}>
+              <p className="eyebrow">À propos</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.07}>
+              <h2 className="text-ink">
+                Une approche moderne du marketing, de l&apos;
+                <em>automatisation</em> et de l&apos;IA.
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.12}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                Je suis Charifa Ouedraogo, consultante marketing spécialisée en funnels de vente, automatisation business et intelligence artificielle.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.16}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                J&apos;aide les entrepreneurs, formateurs et entreprises à vendre plus efficacement, à automatiser leurs business et à intégrer les bons outils digitaux dans leur activité.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.2}>
+              <p className="text-ink-soft leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                Mon travail consiste à transformer une activité dispersée en un système clair, structuré et plus rentable.
+              </p>
+            </ScrollReveal>
 
             {/* Signature */}
-            <div className="flex items-center gap-4 pt-4 border-t border-[var(--line)]">
-              <div
-                className="flex items-center justify-center rounded-[10px] text-sm font-semibold text-white"
-                style={{
-                  width: 44,
-                  height: 44,
-                  background: 'var(--navy)',
-                  fontFamily: 'Fraunces, Georgia, serif',
-                  flexShrink: 0,
-                }}
-              >
-                CO
-              </div>
-              <div>
-                <p
-                  className="text-ink italic"
-                  style={{ fontFamily: 'Fraunces, Georgia, serif', fontWeight: 300 }}
+            <ScrollReveal variant="fade" delay={0.26}>
+              <div className="flex items-center gap-4 pt-4 border-t border-[var(--line)]">
+                <div
+                  className="flex items-center justify-center rounded-[10px] text-sm font-semibold text-white"
+                  style={{
+                    width: 44,
+                    height: 44,
+                    background: 'var(--navy)',
+                    fontFamily: 'Fraunces, Georgia, serif',
+                    flexShrink: 0,
+                  }}
                 >
-                  Charifa Ouedraogo
-                </p>
-                <p className="text-xs text-ink-mute" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-                  CEO · Digital Shift
-                </p>
+                  CO
+                </div>
+                <div>
+                  <p
+                    className="text-ink italic"
+                    style={{ fontFamily: 'Fraunces, Georgia, serif', fontWeight: 300 }}
+                  >
+                    Charifa Ouedraogo
+                  </p>
+                  <p className="text-xs text-ink-mute" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                    CEO · Digital Shift
+                  </p>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="pt-2">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
-                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
-              >
-                En savoir plus
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M1 7h12M8 3l4 4-4 4" />
-                </svg>
-              </Link>
-            </div>
+            <ScrollReveal variant="fadeUp" delay={0.1}>
+              <div className="pt-2">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                  style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                >
+                  En savoir plus
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M1 7h12M8 3l4 4-4 4" />
+                  </svg>
+                </Link>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -128,13 +147,19 @@ export default function HomePage() {
         <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16 lg:items-center">
           {/* Left */}
           <div className="flex flex-col gap-6">
-            <p className="eyebrow">Pourquoi moi</p>
-            <h2 className="text-ink">
-              Une expertise orientée <em>performance</em> et innovation.
-            </h2>
-            <p className="text-ink-mute leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
-              Mon approche ne se limite pas à créer des outils. Je vous aide à construire un système digital cohérent, efficace et adapté à vos objectifs.
-            </p>
+            <ScrollReveal variant="fadeDown" delay={0}>
+              <p className="eyebrow">Pourquoi moi</p>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.07}>
+              <h2 className="text-ink">
+                Une expertise orientée <em>performance</em> et innovation.
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal variant="fadeUp" delay={0.14}>
+              <p className="text-ink-mute leading-relaxed" style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}>
+                Mon approche ne se limite pas à créer des outils. Je vous aide à construire un système digital cohérent, efficace et adapté à vos objectifs.
+              </p>
+            </ScrollReveal>
           </div>
 
           {/* Right — Radial Orbital Timeline */}
