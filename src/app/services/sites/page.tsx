@@ -36,7 +36,7 @@ export default function SitesPage() {
               {/* Preview image */}
               <div className="relative rounded-[var(--radius-lg)] overflow-hidden mb-6" style={{ aspectRatio: '16/9' }}>
                 <Image
-                  src="/funnel-hero/capture-code.png"
+                  src="/images/pourquoi-im.jpg"
                   alt="Aperçu site"
                   fill
                   style={{ objectFit: 'cover', objectPosition: 'top' }}
