@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
 type NavLink = { label: string; href: string }
@@ -13,8 +13,16 @@ type MobileMenuProps = {
   links: NavLink[]
 }
 
+const serviceLinks = [
+  { label: 'Funnels & Automatisation', href: '/services/funnels', badge: '★' },
+  { label: 'Création de Sites', href: '/services/sites', badge: null },
+  { label: 'Intelligence Artificielle', href: '/services/ia', badge: null },
+  { label: 'Formation & Consulting', href: '/services/formation', badge: null },
+]
+
 export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
   const pathname = usePathname()
+  const [servicesOpen, setServicesOpen] = useState(false)
 
   useEffect(() => {
     if (open) {
@@ -27,10 +35,14 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
     }
   }, [open])
 
-  // Close on route change
   useEffect(() => {
     onClose()
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname])
+
+  // Auto-ouvre le submenu si on est sur une page service
+  useEffect(() => {
+    if (pathname.startsWith('/services')) setServicesOpen(true)
   }, [pathname])
 
   return (
@@ -69,11 +81,96 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
             </div>
 
             {/* Links */}
-            <nav className="flex flex-col gap-1 p-4 flex-1">
+            <nav className="flex flex-col gap-1 p-4 flex-1 overflow-y-auto">
               {links.map((link, i) => {
                 const isActive =
                   pathname === link.href ||
                   (link.href !== '/' && pathname.startsWith(link.href))
+
+                if (link.href === '/services') {
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.05 * i, type: 'spring', stiffness: 200, damping: 24 }}
+                    >
+                      {/* Services toggle */}
+                      <button
+                        onClick={() => setServicesOpen((v) => !v)}
+                        className={`w-full flex items-center justify-between px-4 py-3 rounded-[var(--radius-sm)] text-base font-medium transition-colors ${
+                          isActive
+                            ? 'bg-blue-50 text-blue-700'
+                            : 'text-ink hover:bg-[var(--bg-soft)]'
+                        }`}
+                        style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                      >
+                        <span>Services</span>
+                        <motion.svg
+                          width="14"
+                          height="14"
+                          viewBox="0 0 14 14"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          animate={{ rotate: servicesOpen ? 180 : 0 }}
+                          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                        >
+                          <path d="M2 5l5 5 5-5" />
+                        </motion.svg>
+                      </button>
+
+                      {/* Submenu */}
+                      <AnimatePresence>
+                        {servicesOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ type: 'spring', stiffness: 200, damping: 26 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="ml-4 mt-1 flex flex-col gap-0.5 border-l-2 border-[var(--line)] pl-3 pb-1">
+                              {serviceLinks.map((s) => {
+                                const isSubActive = pathname === s.href || pathname.startsWith(s.href)
+                                return (
+                                  <Link
+                                    key={s.href}
+                                    href={s.href}
+                                    className={`flex items-center gap-2 px-3 py-2.5 rounded-[var(--radius-sm)] text-sm transition-colors ${
+                                      isSubActive
+                                        ? 'bg-blue-50 text-blue-700 font-medium'
+                                        : 'text-ink-soft hover:bg-[var(--bg-soft)] hover:text-ink'
+                                    }`}
+                                    style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                                  >
+                                    {s.badge && (
+                                      <span className="text-[10px] text-amber-500">{s.badge}</span>
+                                    )}
+                                    {s.label}
+                                  </Link>
+                                )
+                              })}
+                              <Link
+                                href="/services"
+                                className="flex items-center gap-1.5 px-3 py-2 text-xs text-blue-600 hover:text-blue-700 transition-colors font-medium"
+                                style={{ fontFamily: 'Satoshi, system-ui, sans-serif' }}
+                              >
+                                Voir tous les services
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                  <path d="M1 5h8M6 2l3 3-3 3" />
+                                </svg>
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  )
+                }
+
                 return (
                   <motion.div
                     key={link.href}

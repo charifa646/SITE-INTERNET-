@@ -62,7 +62,7 @@ function DockItem({ link, mouseX, isDark, isActive }: DockItemProps) {
 
         {/* Icône */}
         <div
-          className="w-9 h-9 flex items-center justify-center rounded-[10px] transition-colors duration-200"
+          className="w-11 h-11 flex items-center justify-center rounded-[12px] transition-colors duration-200"
           style={{
             background: isActive
               ? isDark
@@ -74,7 +74,7 @@ function DockItem({ link, mouseX, isDark, isActive }: DockItemProps) {
               : isDark ? 'rgba(255,255,255,0.50)' : 'var(--ink-mute)',
           }}
         >
-          <Icon size={18} weight={isActive ? 'fill' : 'regular'} />
+          <Icon size={22} weight={isActive ? 'fill' : 'regular'} />
         </div>
 
         {/* Pastille active */}
@@ -97,7 +97,7 @@ export default function DockNav({ isDark }: { isDark: boolean }) {
     <motion.div
       onMouseMove={(e) => mouseX.set(e.clientX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="hidden md:flex items-end gap-1.5 px-3 pb-2 pt-1.5"
+      className="hidden md:flex items-end gap-3 px-4 pb-3 pt-2"
       style={{
         borderRadius: 'var(--radius-xl)',
         background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(248,246,241,0.85)',
