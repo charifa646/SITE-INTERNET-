@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'charifa-digital-shift',
   title: 'Digital Shift — CMS',
   basePath: '/studio',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'sit9uvmj',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   plugins: [deskTool(), visionTool()],
   schema: {
     types: [testimonialSchema],

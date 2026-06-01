@@ -1,11 +1,20 @@
 import { createClient } from 'next-sanity'
 
-export const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  apiVersion: '2024-01-01',
-  useCdn: true,
-})
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+
+// Le client est null si les variables d'env sont absentes (ex: build Vercel
+// sans configuration). Les fonctions de fetch retournent [] dans ce cas
+// et le site affiche ses données hardcodées sans planter.
+const sanityClient =
+  projectId && dataset
+    ? createClient({
+        projectId,
+        dataset,
+        apiVersion: '2024-01-01',
+        useCdn: true,
+      })
+    : null
 
 export type SanityTestimonial = {
   _id: string
@@ -26,6 +35,7 @@ const TESTIMONIALS_QUERY = `
 `
 
 export async function getTestimonials(): Promise<SanityTestimonial[]> {
+  if (!sanityClient) return []
   try {
     const results = await sanityClient.fetch<SanityTestimonial[]>(
       TESTIMONIALS_QUERY,
@@ -34,8 +44,6 @@ export async function getTestimonials(): Promise<SanityTestimonial[]> {
     )
     return results ?? []
   } catch {
-    // Retourne un tableau vide si Sanity est inaccessible — le composant
-    // utilisera alors les données hardcodées comme fallback.
     return []
   }
 }
