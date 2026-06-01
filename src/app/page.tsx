@@ -8,6 +8,7 @@ import SpotlightImage from '@/components/ui/SpotlightImage'
 import ServicesStack from '@/components/sections/ServicesStack'
 import Link from 'next/link'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
+import { getServices } from '@/sanity/services'
 
 export const metadata: Metadata = {
   title: 'Charifa Ouedraogo · Digital Shift — Marketing, IA & Automatisation',
@@ -15,7 +16,9 @@ export const metadata: Metadata = {
     'Automatisez votre business. Modernisez votre croissance. Consultante en funnels de vente, automatisation et intelligence artificielle.',
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const services = await getServices()
+
   return (
     <>
       {/* 1. Hero */}
@@ -140,7 +143,7 @@ export default function HomePage() {
       </section>
 
       {/* 4. Services — pile animée au scroll */}
-      <ServicesStack />
+      <ServicesStack services={services} />
 
       {/* 5. Why Section */}
       <section className="relative bg-[#F8F6F1] py-24 px-6 overflow-hidden">

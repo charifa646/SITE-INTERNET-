@@ -10,75 +10,12 @@ import {
 import GridBackground from '@/components/ui/GridBackground'
 import ArrowRightIcon from '@/components/ui/ArrowRightIcon'
 import { cn } from '@/lib/utils'
+import { serviceIcon } from '@/components/sections/serviceIcons'
+import { FALLBACK_SERVICES, type ServiceData } from '@/sanity/services'
 
-type Service = {
-  num: string
-  title: string
-  desc: string
-  tag: string
-  href: string
-  featured: boolean
+type Service = ServiceData & {
   icon: React.ReactNode
 }
-
-// Textes EXACTS de COPYWRITING.md (section « Services (Bento) »). Ne pas reformuler.
-const services: Service[] = [
-  {
-    num: '01',
-    title: 'Funnels & Automatisation',
-    desc: 'Création de tunnels de vente performants, systèmes de conversion et automatisations marketing pour vendre votre offre de manière plus fluide et plus efficace. Conçu pour coachs, formateurs et entrepreneurs qui veulent vendre de façon automatisée.',
-    tag: 'Pour coachs & formateurs en ligne',
-    href: '/services/funnels',
-    featured: true,
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M3 3h18l-7 9v6l-4 2v-8L3 3z" />
-      </svg>
-    ),
-  },
-  {
-    num: '02',
-    title: 'Intelligence Artificielle',
-    desc: 'Accompagnement à l\'intégration de l\'IA pour automatiser des tâches et améliorer votre productivité.',
-    tag: 'Entrepreneurs & entreprises',
-    href: '/services/ia',
-    featured: false,
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 2a4 4 0 00-4 4v2H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V10a2 2 0 00-2-2h-2V6a4 4 0 00-4-4z" />
-        <circle cx="12" cy="15" r="2" />
-      </svg>
-    ),
-  },
-  {
-    num: '03',
-    title: 'Création de Sites Internet',
-    desc: 'Sites vitrines modernes et landing pages premium pour renforcer votre image en ligne et présenter vos services avec clarté.',
-    tag: 'Sites premium',
-    href: '/services/sites',
-    featured: false,
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
-      </svg>
-    ),
-  },
-  {
-    num: '04',
-    title: 'Formation & Consulting',
-    desc: 'Accompagnement personnalisé en présentiel pour aider entrepreneurs et équipes à mieux comprendre l\'IA et la communication digitale sur les réseaux.',
-    tag: 'En présentiel',
-    href: '/services/formation',
-    featured: false,
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 20h9" />
-        <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
-      </svg>
-    ),
-  },
-]
 
 function cardClass(featured: boolean, size: string) {
   return cn(
@@ -164,7 +101,10 @@ function CardInner({ s }: { s: Service }) {
   )
 }
 
-export default function ServicesStack() {
+export default function ServicesStack({ services: data }: { services?: ServiceData[] }) {
+  const source = data && data.length > 0 ? data : FALLBACK_SERVICES
+  const services: Service[] = source.map((s) => ({ ...s, icon: serviceIcon(s.slug) }))
+
   return (
     <section className="relative bg-[#F2EFE8] overflow-hidden">
       <GridBackground variant="light" />

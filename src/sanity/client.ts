@@ -16,6 +16,8 @@ const sanityClient =
       })
     : null
 
+export { sanityClient }
+
 export type SanityTestimonial = {
   _id: string
   quote: string
