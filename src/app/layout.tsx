@@ -4,6 +4,7 @@ import Nav from '@/components/layout/Nav'
 import Footer from '@/components/layout/Footer'
 import CustomCursor from '@/components/ui/CustomCursor'
 import { Suspense } from 'react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: {
@@ -34,6 +35,7 @@ export default function RootLayout({
         </Suspense>
         <main>{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   )
