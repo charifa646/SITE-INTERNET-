@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 // Témoignages RÉELS transcrits des captures clientes (testi-01…06).
 // Léger nettoyage orthographique/ponctuation, emojis retirés (politique anti-emoji).
 // Attribution : prénom lisible (Pamela) sinon label neutre. Aucun nom inventé.
-type Testimonial = {
+export type Testimonial = {
   tempId: number
   quote: string
   by: string
@@ -137,9 +137,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   )
 }
 
-export const StaggerTestimonials: React.FC = () => {
+interface StaggerTestimonialsProps {
+  testimonials?: Testimonial[]
+}
+
+export const StaggerTestimonials: React.FC<StaggerTestimonialsProps> = ({ testimonials }) => {
+  const initialList = testimonials && testimonials.length > 0 ? testimonials : TESTIMONIALS
   const [cardSize, setCardSize] = useState(340)
-  const [list, setList] = useState<Testimonial[]>(TESTIMONIALS)
+  const [list, setList] = useState<Testimonial[]>(initialList)
   const touchStartX = useRef<number | null>(null)
 
   const handleMove = (steps: number) => {

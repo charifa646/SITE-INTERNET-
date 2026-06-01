@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Nav from '@/components/layout/Nav'
-import Footer from '@/components/layout/Footer'
+import { SiteShell } from '@/components/layout/SiteShell'
 import CustomCursor from '@/components/ui/CustomCursor'
-import { Suspense } from 'react'
 
 export const metadata: Metadata = {
   title: {
@@ -29,11 +27,7 @@ export default function RootLayout({
     <html lang="fr" suppressHydrationWarning>
       <body>
         <CustomCursor />
-        <Suspense>
-          <Nav />
-        </Suspense>
-        <main>{children}</main>
-        <Footer />
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   )

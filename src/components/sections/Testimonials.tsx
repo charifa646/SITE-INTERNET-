@@ -1,9 +1,20 @@
-'use client'
-
 import GridBackground from '@/components/ui/GridBackground'
 import { StaggerTestimonials } from '@/components/ui/stagger-testimonials'
+import { getTestimonials } from '@/sanity/client'
+import type { Testimonial } from '@/components/ui/stagger-testimonials'
 
-export default function Testimonials() {
+export default async function Testimonials() {
+  const sanityData = await getTestimonials()
+
+  // Mappe le format Sanity → format interne du composant.
+  // L'initiale est dérivée de l'auteur si le champ est vide dans Sanity.
+  const testimonials: Testimonial[] = sanityData.map((t, i) => ({
+    tempId: i,
+    quote: t.quote,
+    by: t.author,
+    initial: t.initial || t.author.charAt(0).toUpperCase(),
+  }))
+
   return (
     <section className="relative bg-[#0A0F1E] py-24 px-6 overflow-hidden">
       <GridBackground variant="dark" />
@@ -41,8 +52,8 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Carrousel en éventail — témoignages réels transcrits */}
-        <StaggerTestimonials />
+        {/* Carrousel — données Sanity si disponibles, sinon fallback hardcodé */}
+        <StaggerTestimonials testimonials={testimonials.length > 0 ? testimonials : undefined} />
       </div>
     </section>
   )
